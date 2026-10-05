@@ -1,0 +1,151 @@
+{% extends "_base.html" %}
+{% set page = 'regulamentacoes' %}
+
+{% block title %}Regulamentações, políticas e manuais | Copetro{% endblock %}
+{% block description %}Políticas, manuais e regulamentos públicos da Copetro: ouvidoria, código de ética, regimento interno, segurança cibernética e proteção de dados.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "A Copetro", "item": "{{ site_url }}/a-copetro" },
+    { "@type": "ListItem", "position": 3, "name": "Regulamentações", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Transparência</span>
+      <h1>Regulamentações</h1>
+      <p class="lead">
+        As políticas e manuais que orientam a atuação da cooperativa, disponíveis para consulta
+        de qualquer associado.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Políticas e manuais</span>
+      <h2>Documentos públicos</h2>
+      <p>
+        Todos os arquivos estão em PDF e abrem em uma nova aba. Em caso de dúvida sobre
+        qualquer documento, fale com o nosso <a href="/fale-conosco">atendimento</a>.
+      </p>
+    </div>
+
+    {% for grupo, docs in grupos %}
+    <div class="doc-group" data-reveal>
+      <h3 class="doc-group__title">{{ grupo }}</h3>
+      <ul class="doc-list">
+        {% for d in docs %}
+        <li>
+          <a href="{{ url_for('static', filename='docs/' ~ d.arquivo) }}"
+             target="_blank" rel="noopener">
+            <span class="doc-list__icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M6 2.8h8l4.2 4.2v14.2H6z"/><path d="M14 2.8V7h4.2"/>
+                <path d="M9 13h6M9 16.5h4"/>
+              </svg>
+            </span>
+            <span class="doc-list__text">
+              <strong>{{ d.titulo }}</strong>
+              <small>PDF · {{ d.kb }} KB</small>
+            </span>
+            <span class="doc-list__go" aria-hidden="true">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M12 3v13"/><path d="m7 11 5 5 5-5"/><path d="M4 20h16"/>
+              </svg>
+            </span>
+          </a>
+        </li>
+        {% endfor %}
+      </ul>
+    </div>
+    {% endfor %}
+
+    <div class="highlight" data-reveal style="margin-top: clamp(32px, 4vw, 48px);">
+      <h3 style="margin-top:0;">Precisa de um exercício anterior?</h3>
+      <p style="margin-bottom:1.2rem;">
+        As demonstrações contábeis de exercícios não listados acima podem ser solicitadas ao
+        nosso atendimento.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--outline" href="/fale-conosco#contato">Solicitar demonstrações</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Como somos regulados</span>
+      <h2>O que rege a cooperativa</h2>
+    </div>
+
+    <div class="grid grid--3" data-reveal-stagger>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v18M5 7h14"/><path d="M5 7 2.5 14a3 3 0 0 0 5 0z"/><path d="M19 7l-2.5 7a3 3 0 0 0 5 0z"/><path d="M8.5 21h7"/>
+          </svg>
+        </div>
+        <h3>Legislação do cooperativismo</h3>
+        <p>
+          Lei nº 5.764/1971, que define a política nacional de cooperativismo, e Lei
+          Complementar nº 130/2009, específica das cooperativas de crédito.
+        </p>
+      </article>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 8.5 12 3 3.5 8.5"/><path d="M5 10v8m14-8v8"/><path d="M3 21h18"/><path d="M9.5 10v8m5-8v8"/>
+          </svg>
+        </div>
+        <h3>Supervisão do Banco Central</h3>
+        <p>
+          Cooperativas de crédito integram o Sistema Financeiro Nacional e são supervisionadas
+          pelo Banco Central do Brasil.
+        </p>
+      </article>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="4.5" y="10.5" width="15" height="10" rx="2.4"/><path d="M8 10.5V7.4a4 4 0 0 1 8 0v3.1"/>
+          </svg>
+        </div>
+        <h3>Proteção de dados</h3>
+        <p>
+          O tratamento de dados pessoais segue a LGPD, Lei nº 13.709/2018. Veja a nossa
+          <a href="/politica-de-privacidade">Política de Privacidade</a>.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Não encontrou o que procurava?</h2>
+      <p>A Ouvidoria registra reclamações e sugestões que não foram resolvidas no atendimento.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/ouvidoria">Falar com a Ouvidoria</a>
+      <a class="btn btn--outline" href="/fale-conosco">Fale conosco</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

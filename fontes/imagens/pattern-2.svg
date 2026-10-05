@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="">
+  <defs><clipPath id="p2c"><rect width="800" height="500"/></clipPath></defs>
+  <g clip-path="url(#p2c)">
+    <rect width="800" height="500" fill="#e8f5ec"/>
+    <path d="M0 500V210c90-60 190-70 300-30 130 48 210 40 240-24 20-42 90-60 210-54H800v398z"
+          fill="#009a44" opacity=".22"/>
+    <path d="M0 500V300c110-46 210-40 300 18 96 62 180 62 250 0 44-40 127-52 250-36V500z"
+          fill="#056f33" opacity=".5"/>
+    <circle cx="612" cy="132" r="46" fill="#f5e400"/>
+    <g stroke="#0a3a1b" stroke-width="3" stroke-linecap="round" fill="none" opacity=".5">
+      <path d="M120 120h120M120 164h190M120 208h84"/>
+    </g>
+  </g>
+</svg>

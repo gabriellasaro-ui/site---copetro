@@ -1,0 +1,6 @@
+Flask==3.0.3
+gunicorn==22.0.0
+Flask-Compress==1.15
+Pillow==11.3.0
+rcssmin==1.2.2
+rjsmin==1.2.5

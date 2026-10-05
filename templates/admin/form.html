@@ -1,0 +1,106 @@
+{% extends "admin/_base.html" %}
+{% block title %}{{ 'Novo conteúdo' if novo else 'Editar conteúdo' }}{% endblock %}
+{% block conteudo %}
+<div class="adm-cab">
+  <div>
+    <p class="adm-voltar"><a href="{{ url_for('admin.lista') }}">&larr; Todos os conteúdos</a></p>
+    <h1>{{ 'Novo conteúdo' if novo else 'Editar conteúdo' }}</h1>
+  </div>
+  {% if not novo %}
+  <a class="btn btn--outline" href="{{ url_for('admin.previa', slug=post.slug) }}" target="_blank" rel="noopener">Pré-visualizar</a>
+  {% endif %}
+</div>
+
+{% if erros %}
+<div class="adm-aviso adm-aviso--erro" role="alert">
+  <strong>Corrija antes de salvar:</strong>
+  <ul>{% for e in erros %}<li>{{ e }}</li>{% endfor %}</ul>
+</div>
+{% endif %}
+
+<form class="adm-form" method="post" enctype="multipart/form-data" novalidate>
+  <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+
+  <div class="adm-grade">
+    <div class="adm-col">
+      <div class="form-field">
+        <label for="titulo">Título *</label>
+        <input type="text" id="titulo" name="titulo" value="{{ post.titulo }}" maxlength="140" required
+               data-contador="140">
+        <small class="adm-dica"><span data-contador-de="titulo">0</span>/140</small>
+      </div>
+
+      <div class="form-field">
+        <label for="subtitulo">Subtítulo</label>
+        <input type="text" id="subtitulo" name="subtitulo" value="{{ post.subtitulo }}" maxlength="160"
+               data-contador="160">
+        <small class="adm-dica">Linha fina opcional, abaixo do título. <span data-contador-de="subtitulo">0</span>/160</small>
+      </div>
+
+      <div class="form-field">
+        <label for="corpo">Texto *</label>
+        <textarea id="corpo" name="corpo" rows="16" required>{{ post.corpo }}</textarea>
+        <small class="adm-dica">Separe os parágrafos com <strong>uma linha em branco</strong>.
+          Texto simples: sem negrito, listas ou links.</small>
+      </div>
+
+      <div class="form-field">
+        <label for="resumo">Resumo</label>
+        <textarea id="resumo" name="resumo" rows="3" maxlength="220" data-contador="220">{{ post.resumo }}</textarea>
+        <small class="adm-dica">Aparece nos resultados de busca e ao compartilhar.
+          Deixe em branco para usar o início do texto. <span data-contador-de="resumo">0</span>/220</small>
+      </div>
+    </div>
+
+    <aside class="adm-col adm-lateral">
+      <div class="adm-card">
+        <h2>Publicação</h2>
+
+        <div class="form-field">
+          <label for="categoria">Categoria *</label>
+          <select id="categoria" name="categoria">
+            {% for c in categorias %}
+            <option {{ 'selected' if post.categoria == c }}>{{ c }}</option>
+            {% endfor %}
+          </select>
+        </div>
+
+        <div class="form-field">
+          <label for="data_iso">Data *</label>
+          <input type="date" id="data_iso" name="data_iso" value="{{ post.data_iso }}" required>
+        </div>
+
+        <label class="adm-check">
+          <input type="checkbox" name="publicado" value="1" {{ 'checked' if post.publicado }}>
+          <span><strong>Publicado</strong><br>
+            Desmarque para guardar como rascunho, sem aparecer no site.</span>
+        </label>
+
+        <button class="btn btn--primary btn--block" type="submit">
+          {{ 'Criar conteúdo' if novo else 'Salvar alterações' }}
+        </button>
+      </div>
+
+      <div class="adm-card">
+        <h2>Imagem de capa</h2>
+        {% if post.imagem %}
+        <img class="adm-previa" src="{{ media_url(post.imagem) }}" alt="Capa atual" data-previa-atual>
+        <label class="adm-check">
+          <input type="checkbox" name="remover_imagem" value="1">
+          <span>Remover a imagem</span>
+        </label>
+        {% else %}
+        <img class="adm-previa" src="" alt="" hidden data-previa-atual>
+        {% endif %}
+
+        <div class="form-field">
+          <label for="imagem">{{ 'Trocar imagem' if post.imagem else 'Enviar imagem' }}</label>
+          <input type="file" id="imagem" name="imagem" accept="image/jpeg,image/png,image/webp" data-previa-envio>
+          <small class="adm-dica">JPG, PNG ou WebP, até 8 MB. Formato 16:10 (por exemplo
+            1600 × 1000) enquadra melhor nos cartões.</small>
+        </div>
+      </div>
+    </aside>
+  </div>
+</form>
+{% endblock %}

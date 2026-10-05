@@ -1,0 +1,19 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 500" role="img" aria-label="">
+  <defs>
+    <linearGradient id="p3g" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#056f33"/>
+      <stop offset="1" stop-color="#00b451"/>
+    </linearGradient>
+    <clipPath id="p3c"><rect width="800" height="500"/></clipPath>
+  </defs>
+  <g clip-path="url(#p3c)">
+    <rect width="800" height="500" fill="url(#p3g)"/>
+    <g fill="#ffffff" opacity=".12">
+      <circle cx="210" cy="250" r="150"/><circle cx="400" cy="250" r="150"/><circle cx="590" cy="250" r="150"/>
+    </g>
+    <g fill="none" stroke="#ffffff" stroke-width="3" opacity=".5">
+      <circle cx="210" cy="250" r="150"/><circle cx="400" cy="250" r="150"/><circle cx="590" cy="250" r="150"/>
+    </g>
+    <circle cx="400" cy="250" r="30" fill="#f5e400"/>
+  </g>
+</svg>

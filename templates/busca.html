@@ -1,0 +1,79 @@
+{% extends "_base.html" %}
+{% set page = 'busca' %}
+
+{% block title %}{% if termo %}Busca por "{{ termo }}"{% else %}Buscar no site{% endif %} | Copetro{% endblock %}
+{% block description %}Busque páginas e conteúdos no site da Copetro.{% endblock %}
+{% block robots %}noindex, follow{% endblock %}
+
+{% block content %}
+
+<section class="section search-page">
+  <div class="container">
+    <div class="search-head" data-reveal>
+      <span class="eyebrow">Busca</span>
+      <h1>O que você procura?</h1>
+
+      <form class="search-form" action="/busca" method="get" role="search">
+        <label class="visually-hidden" for="q">Buscar no site</label>
+        <svg class="search-form__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/>
+        </svg>
+        <input type="search" id="q" name="q" value="{{ termo }}"
+               placeholder="Empréstimo, ouvidoria, golpes..." autocomplete="off"
+               {% if not termo %}autofocus{% endif %}>
+        <button class="btn btn--primary" type="submit">Buscar</button>
+      </form>
+
+      {% if termo %}
+      <p class="search-count">
+        {% if resultados %}
+          {{ resultados|length }} resultado{{ 's' if resultados|length != 1 }} para
+          <strong>"{{ termo }}"</strong>
+        {% else %}
+          Nenhum resultado para <strong>"{{ termo }}"</strong>
+        {% endif %}
+      </p>
+      {% endif %}
+    </div>
+
+    {% if resultados %}
+    <ul class="search-list" data-reveal>
+      {% for r in resultados %}
+      <li class="search-result">
+        <a href="{{ r.url }}">
+          <span class="search-result__tipo">{{ r.tipo }}</span>
+          <span class="search-result__titulo">{{ r.titulo }}</span>
+          <span class="search-result__resumo">{{ r.resumo }}</span>
+          <span class="search-result__url">copetro.org.br{{ r.url }}</span>
+        </a>
+      </li>
+      {% endfor %}
+    </ul>
+
+    {% elif termo %}
+    <div class="search-empty" data-reveal>
+      <p>Tente outra palavra ou use um destes atalhos:</p>
+      <div class="btn-row" style="justify-content:center; margin-top:1.4rem;">
+        <a class="btn btn--outline btn--sm" href="/emprestimo">Empréstimo</a>
+        <a class="btn btn--outline btn--sm" href="/ouvidoria">Ouvidoria</a>
+        <a class="btn btn--outline btn--sm" href="/regulamentacoes">Regulamentações</a>
+        <a class="btn btn--outline btn--sm" href="/fale-conosco#faq">Dúvidas frequentes</a>
+      </div>
+    </div>
+
+    {% else %}
+    <div class="search-empty" data-reveal>
+      <p>Buscas mais comuns:</p>
+      <div class="btn-row" style="justify-content:center; margin-top:1.4rem;">
+        <a class="btn btn--outline btn--sm" href="/busca?q=empr%C3%A9stimo">Empréstimo</a>
+        <a class="btn btn--outline btn--sm" href="/busca?q=ouvidoria">Ouvidoria</a>
+        <a class="btn btn--outline btn--sm" href="/busca?q=golpes">Golpes digitais</a>
+        <a class="btn btn--outline btn--sm" href="/busca?q=estatuto">Estatuto</a>
+        <a class="btn btn--outline btn--sm" href="/busca?q=associar">Como me associar</a>
+      </div>
+    </div>
+    {% endif %}
+  </div>
+</section>
+
+{% endblock %}

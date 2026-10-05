@@ -1,0 +1,249 @@
+{% extends "_base.html" %}
+{% set page = 'politica-de-privacidade' %}
+
+{% block title %}Política de Privacidade | Copetro{% endblock %}
+{% block description %}Como a Copetro coleta, usa, compartilha e protege dados pessoais, e quais são os seus direitos como titular, conforme a LGPD (Lei nº 13.709/2018).{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Política de Privacidade", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">LGPD</span>
+      <h1>Política de Privacidade</h1>
+      <p class="lead">
+        Como a Copetro trata os dados pessoais de associados, visitantes e demais titulares.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <aside class="legal-toc" data-reveal aria-label="Índice da página">
+        <p class="legal-toc__title">Nesta página</p>
+        <ul>
+          <li><a href="#quem-somos">1. Quem é o controlador</a></li>
+          <li><a href="#dados">2. Dados que tratamos</a></li>
+          <li><a href="#finalidades">3. Finalidades e bases legais</a></li>
+          <li><a href="#compartilhamento">4. Compartilhamento</a></li>
+          <li><a href="#retencao">5. Prazo de retenção</a></li>
+          <li><a href="#seguranca">6. Segurança</a></li>
+          <li><a href="#direitos">7. Seus direitos</a></li>
+          <li><a href="#cookies">8. Cookies</a></li>
+          <li><a href="#menores">9. Crianças e adolescentes</a></li>
+          <li><a href="#alteracoes">10. Alterações</a></li>
+          <li><a href="#contato-dpo">11. Encarregado (DPO)</a></li>
+        </ul>
+      </aside>
+
+      <div class="legal" data-reveal>
+        <p class="legal__meta">
+          <strong>Última atualização:</strong> 29 de setembro de 2026.<br>
+          Esta política é elaborada conforme a Lei Geral de Proteção de Dados Pessoais
+          (Lei nº 13.709/2018, LGPD).
+        </p>
+
+        <h2 id="quem-somos">1. Quem é o controlador dos seus dados</h2>
+        <p>
+          A <strong>COPETRO, Cooperativa de Economia e Crédito Mútuo dos Petroleiros no Estado de Minas Gerais</strong> é a controladora dos dados pessoais tratados no contexto
+          deste site e da relação com seus associados, e decide sobre as finalidades e os meios
+          desse tratamento.
+        </p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Dados do controlador (tabela, role para o lado se necessário)">        <table>
+          <tbody>
+            <tr><th scope="row">Razão social</th><td>COPETRO, Cooperativa de Economia e Crédito Mútuo dos Petroleiros no Estado de Minas Gerais</td></tr>
+            <tr><th scope="row">CNPJ</th><td>26.758.433/0001-02</td></tr>
+            <tr><th scope="row">Sede</th><td>Avenida Paraná, 485, 5º andar, Centro<br>Belo Horizonte, MG, CEP 30120-020</td></tr>
+            <tr><th scope="row">Telefone</th><td><a href="tel:+553132014412">(31) 3201-4412</a></td></tr>
+            <tr><th scope="row">E-mail</th><td><a href="mailto:faleconosco@copetro.org.br">faleconosco@copetro.org.br</a></td></tr>
+          </tbody>
+        </table></div>
+
+        <h2 id="dados">2. Dados pessoais que tratamos</h2>
+        <p>Tratamos apenas os dados necessários para cada finalidade. São eles:</p>
+
+        <h3>Dados que você nos fornece</h3>
+        <ul>
+          <li><strong>Identificação:</strong> nome completo, CPF, data de nascimento;</li>
+          <li><strong>Contato:</strong> e-mail, telefone, endereço;</li>
+          <li><strong>Relacionamento:</strong> mensagens enviadas pelo formulário de contato, solicitações e manifestações registradas no atendimento;</li>
+          <li><strong>Financeiros:</strong> dados de renda, vínculo empregatício e informações necessárias à análise de crédito, quando você solicita um empréstimo ou a associação.</li>
+        </ul>
+
+        <h3>Dados coletados automaticamente</h3>
+        <ul>
+          <li>Endereço IP, tipo de dispositivo, navegador e sistema operacional;</li>
+          <li>Páginas acessadas, tempo de permanência e origem da visita;</li>
+          <li>Identificadores de cookies, conforme as suas preferências de consentimento.</li>
+        </ul>
+
+        <h2 id="finalidades">3. Para que usamos e com qual base legal</h2>
+        <p>
+          Todo tratamento de dados tem uma finalidade específica e uma base legal que o autoriza,
+          nos termos do art. 7º da LGPD:
+        </p>
+
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Finalidades e bases legais (tabela, role para o lado se necessário)">        <table>
+          <thead>
+            <tr><th>Finalidade</th><th>Base legal</th></tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Executar o contrato de associação e prestar os serviços da cooperativa</td>
+              <td>Execução de contrato (art. 7º, V)</td>
+            </tr>
+            <tr>
+              <td>Analisar solicitações de crédito e conceder empréstimos</td>
+              <td>Execução de contrato e procedimentos preliminares (art. 7º, V)</td>
+            </tr>
+            <tr>
+              <td>Cumprir obrigações legais e regulatórias do setor financeiro, incluindo prevenção à lavagem de dinheiro</td>
+              <td>Cumprimento de obrigação legal (art. 7º, II)</td>
+            </tr>
+            <tr>
+              <td>Responder a contatos, dúvidas e solicitações de atendimento</td>
+              <td>Legítimo interesse (art. 7º, IX)</td>
+            </tr>
+            <tr>
+              <td>Prevenir fraudes e garantir a segurança do associado</td>
+              <td>Legítimo interesse e proteção ao crédito (art. 7º, IX e X)</td>
+            </tr>
+            <tr>
+              <td>Enviar comunicações institucionais e de marketing</td>
+              <td>Consentimento (art. 7º, I)</td>
+            </tr>
+            <tr>
+              <td>Medir audiência do site com cookies de desempenho</td>
+              <td>Consentimento (art. 7º, I)</td>
+            </tr>
+          </tbody>
+        </table></div>
+
+        <p>
+          Quando o tratamento se apoia no <strong>consentimento</strong>, você pode revogá-lo a
+          qualquer momento, sem que isso afete a licitude do tratamento realizado antes da
+          revogação.
+        </p>
+
+        <h2 id="compartilhamento">4. Com quem compartilhamos</h2>
+        <p>A Copetro não vende dados pessoais. O compartilhamento ocorre apenas quando necessário:</p>
+        <ul>
+          <li><strong>Autoridades e órgãos reguladores:</strong> Banco Central do Brasil, Receita Federal, COAF e Poder Judiciário, no cumprimento de obrigação legal ou ordem judicial;</li>
+          <li><strong>Bureaus de crédito:</strong> para consulta e registro de informações na análise e concessão de crédito;</li>
+          <li><strong>Operadores:</strong> fornecedores de tecnologia, hospedagem e atendimento que tratam dados em nome da Copetro, sob contrato e obrigações de confidencialidade;</li>
+          <li><strong>Sistema cooperativo:</strong> entidades do sistema, quando necessário à prestação dos serviços.</li>
+        </ul>
+
+        <h2 id="retencao">5. Por quanto tempo guardamos</h2>
+        <p>
+          Os dados são mantidos pelo tempo necessário ao cumprimento das finalidades acima. Encerrada
+          a relação, permanecem armazenados apenas enquanto houver obrigação legal, regulatória ou
+          necessidade de exercício regular de direitos, em especial os prazos de guarda exigidos
+          para instituições do Sistema Financeiro Nacional. Depois disso, são eliminados ou
+          anonimizados.
+        </p>
+
+        <h2 id="seguranca">6. Como protegemos seus dados</h2>
+        <p>
+          Adotamos medidas técnicas e administrativas para proteger os dados pessoais contra acessos
+          não autorizados e situações acidentais ou ilícitas de destruição, perda, alteração ou
+          difusão, incluindo controle de acesso, criptografia em trânsito e políticas internas de
+          segurança da informação.
+        </p>
+        <div class="highlight" style="margin: 1.6rem 0;">
+          <h3 style="margin-top:0;">Atenção a golpes</h3>
+          <p style="margin-bottom:0;">
+            A Copetro <strong>nunca solicita senhas, códigos de verificação ou pagamentos</strong> por
+            telefone, e-mail ou mensagem. Na dúvida, encerre o contato e procure nossos
+            <a href="/fale-conosco">canais oficiais</a>.
+          </p>
+        </div>
+
+        <h2 id="direitos">7. Seus direitos como titular</h2>
+        <p>A LGPD garante a você, a qualquer momento e mediante requisição (art. 18):</p>
+        <ul>
+          <li>Confirmação da existência de tratamento;</li>
+          <li>Acesso aos seus dados;</li>
+          <li>Correção de dados incompletos, inexatos ou desatualizados;</li>
+          <li>Anonimização, bloqueio ou eliminação de dados desnecessários ou tratados em desconformidade com a lei;</li>
+          <li>Portabilidade a outro fornecedor, mediante requisição expressa;</li>
+          <li>Eliminação dos dados tratados com base no consentimento;</li>
+          <li>Informação sobre com quem compartilhamos seus dados;</li>
+          <li>Informação sobre a possibilidade de não consentir e suas consequências;</li>
+          <li>Revogação do consentimento;</li>
+          <li>Revisão de decisões automatizadas que afetem seus interesses.</li>
+        </ul>
+        <p>
+          Para exercer qualquer um desses direitos, entre em contato pelos canais indicados no item
+          11. Podemos solicitar informações adicionais para confirmar sua identidade antes de
+          atender ao pedido: é uma medida de segurança em seu favor.
+        </p>
+
+        <h2 id="cookies">8. Cookies</h2>
+        <p>
+          Este site utiliza cookies. Os cookies necessários são indispensáveis ao funcionamento e
+          não dependem de consentimento; os demais só são ativados se você autorizar.
+          Veja os detalhes na <a href="/politica-de-cookies">Política de Cookies</a> ou
+          <a href="#" data-cookie-open>gerencie suas preferências</a>.
+        </p>
+
+        <h2 id="menores">9. Crianças e adolescentes</h2>
+        <p>
+          Os serviços da Copetro são destinados a maiores de 18 anos. Não coletamos
+          intencionalmente dados de crianças. Caso identifiquemos tratamento indevido, os dados
+          serão eliminados.
+        </p>
+
+        <h2 id="alteracoes">10. Alterações nesta política</h2>
+        <p>
+          Esta política pode ser atualizada para refletir mudanças legais, regulatórias ou nos
+          nossos processos. A data da última atualização está sempre indicada no topo. Mudanças
+          relevantes serão comunicadas pelos nossos canais.
+        </p>
+
+        <h2 id="contato-dpo">11. Encarregado pelo tratamento de dados (DPO)</h2>
+        <p>
+          Dúvidas, solicitações e reclamações sobre dados pessoais podem ser enviadas ao nosso
+          Encarregado, conforme o art. 41 da LGPD.
+        </p>
+        <p>
+          <em>Nome e e-mail do Encarregado a serem informados pela Copetro.</em>
+          Enquanto isso, utilize os nossos <a href="/fale-conosco">canais de atendimento</a>.
+        </p>
+        <p>
+          Você também pode apresentar reclamação à Autoridade Nacional de Proteção de Dados (ANPD).
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Ficou com alguma dúvida?</h2>
+      <p>Fale com a Copetro sobre privacidade, seus dados ou qualquer outro assunto.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#contato">Falar com a Copetro</a>
+      <a class="btn btn--outline" href="/politica-de-cookies">Política de Cookies</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

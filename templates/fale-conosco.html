@@ -1,0 +1,417 @@
+{% extends "_base.html" %}
+{% set page = 'fale-conosco' %}
+
+{% block title %}Fale conosco: telefone, e-mail e atendimento | Copetro{% endblock %}
+{% block description %}Fale com a Copetro: canais de atendimento, dúvidas frequentes e como se associar à cooperativa.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "{{ site_url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Fale Conosco",
+      "item": "{{ canonical_url }}"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "ContactPage",
+  "name": "Fale Conosco, Copetro",
+  "url": "{{ canonical_url }}",
+  "about": {
+    "@id": "{{ site_url }}/#organizacao"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é uma cooperativa de crédito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É uma instituição criada pela união de pessoas para oferecer serviços financeiros aos próprios associados. Quem usa os serviços também é dono da cooperativa."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como faço para me associar à Copetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Basta entrar em contato com o atendimento. A equipe informa os documentos necessários e acompanha todo o processo."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como acesso a Área do Associado?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O acesso é feito com as credenciais enviadas no momento do cadastro."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como simulo um empréstimo na Copetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Use o simulador na página de Empréstimo para estimar o valor da parcela e, em seguida, solicite uma proposta com as condições do seu perfil."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como me protejo de golpes digitais?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Copetro nunca solicita senhas, códigos de verificação ou pagamentos por telefone, e-mail ou mensagem. Na dúvida, encerre o contato e procure os canais oficiais."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Fale conosco</span>
+      <h1>Uma cooperativa próxima de quem faz parte dela.</h1>
+      <p class="lead">
+        Tire dúvidas, solicite informações ou entenda como se associar. Estamos por aqui para ajudar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Contato -->
+<section class="section" id="contato">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow">Atendimento</span>
+        <h2>Canais de atendimento</h2>
+        <p class="lead" style="margin-top:1rem;">
+          Escolha o canal mais prático para você. Nosso time responde em horário comercial.
+        </p>
+
+        <div style="margin-top:2rem;">
+          <div class="channel">
+            <span class="channel__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 5.5h4l1.6 4-2 1.4a12 12 0 0 0 5 5l1.4-2 4 1.6v4a1.4 1.4 0 0 1-1.6 1.4A16.5 16.5 0 0 1 3.1 7.1 1.4 1.4 0 0 1 4.5 5.5z"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Telefone</h3>
+              <p><a href="tel:+553132014412">(31) 3201-4412</a></p>
+            </div>
+          </div>
+
+          <div class="channel">
+            <span class="channel__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="3" y="5" width="18" height="14" rx="2.4"/><path d="m3.5 6.5 8.5 6.4 8.5-6.4"/>
+              </svg>
+            </span>
+            <div>
+              <h3>E-mail</h3>
+              <p><a href="mailto:faleconosco@copetro.org.br">faleconosco@copetro.org.br</a></p>
+            </div>
+          </div>
+
+          <div class="channel">
+            <span class="channel__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" aria-hidden="true">
+                <rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/>
+                <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Instagram</h3>
+              <p><a href="https://www.instagram.com/copetro_mg/" target="_blank" rel="noopener">@copetro_mg</a></p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="simulator" data-reveal>
+        <h3 style="margin-bottom:.4rem;">Envie sua mensagem</h3>
+        <p class="form-note" style="margin-bottom:1.6rem;">Responderemos no e-mail informado.</p>
+
+        <form class="form-grid" data-whats-form
+              data-whats-titulo="Contato pelo site" novalidate>
+          <div class="form-field">
+            <label for="nome">Nome completo</label>
+            <input type="text" id="nome" name="nome" autocomplete="name" required>
+          </div>
+          <div class="form-field">
+            <label for="email">E-mail</label>
+            <input type="email" id="email" name="email" autocomplete="email" required>
+          </div>
+          <div class="form-field">
+            <label for="telefone">Telefone</label>
+            <input type="tel" id="telefone" name="telefone" autocomplete="tel">
+          </div>
+          <div class="form-field">
+            <label for="assunto">Assunto</label>
+            <select id="assunto" name="assunto">
+              <option>Quero ser associado</option>
+              <option>Empréstimo</option>
+              <option>Área do Associado</option>
+              <option>Convênios</option>
+              <option>Outro assunto</option>
+            </select>
+          </div>
+          <div class="form-field form-field--full">
+            <label for="mensagem">Mensagem</label>
+            <textarea id="mensagem" name="mensagem" required></textarea>
+          </div>
+          <div class="form-field form-field--full">
+            <label class="lead__consent">
+              <input type="checkbox" name="consentimento" data-consent required>
+              <span>
+                Autorizo a Copetro a usar meus dados para responder a esta mensagem, conforme a
+                <a href="/politica-de-privacidade" target="_blank">Política de Privacidade</a>. *
+              </span>
+            </label>
+          </div>
+          <div class="form-field form-field--full">
+            <button class="btn btn--primary btn--block" type="submit">
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.78.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
+              </svg>
+              Enviar pelo WhatsApp
+            </button>
+            <p class="form-note" data-form-status role="status" style="margin-top:.8rem;">
+              O botão abre o WhatsApp com a sua mensagem já escrita.
+            </p>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Endereço -->
+<section class="section section--cream" id="endereco">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Atendimento presencial</span>
+      <h2>Onde nos encontrar</h2>
+      <p>
+        A sede da Copetro fica no Centro de Belo Horizonte, a poucos passos da Praça Sete.
+      </p>
+    </div>
+
+    <div class="endereco">
+      <div class="endereco__mapa" data-reveal>
+        <div class="mapa">
+          <iframe
+            title="Mapa com a localização da sede da Copetro na Avenida Paraná, 485, Centro, Belo Horizonte"
+            src="https://www.openstreetmap.org/export/embed.html?bbox=-43.9430%2C-19.9220%2C-43.9330%2C-19.9160&amp;layer=mapnik&amp;marker=-19.9190%2C-43.9380"
+            loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+        </div>
+        <p class="mapa__credito">
+          Mapa e dados por
+          <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noopener">contribuidores
+          do OpenStreetMap</a>. Localização aproximada.
+        </p>
+      </div>
+
+      <div class="endereco__dados" data-reveal>
+        <div class="endereco__linha">
+          <span class="endereco__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M12 21.5s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10.2" r="2.7"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Endereço</h3>
+            <address>
+              Avenida Paraná, 485, 5º andar<br>
+              Centro, Belo Horizonte, MG<br>
+              CEP 30120-020
+            </address>
+          </div>
+        </div>
+
+        <div class="endereco__linha">
+          <span class="endereco__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Horário</h3>
+            <p>Segunda a sexta, em horário comercial.</p>
+          </div>
+        </div>
+
+        <div class="endereco__linha">
+          <span class="endereco__icone" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="5" y="3.5" width="14" height="13" rx="2.6"/><path d="M5 12h14"/>
+              <path d="M8 20.5l1.6-4M16 20.5l-1.6-4"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Como chegar</h3>
+            <p>
+              A região central concentra as principais linhas de ônibus e fica próxima da
+              estação Central do metrô.
+            </p>
+          </div>
+        </div>
+
+        <div class="btn-row" style="margin-top:1.6rem;">
+          <a class="btn btn--primary"
+             href="https://www.google.com/maps/dir/?api=1&amp;destination=Avenida+Paran%C3%A1%2C+485+-+Centro%2C+Belo+Horizonte+-+MG%2C+30120-020"
+             target="_blank" rel="noopener">Traçar rota</a>
+          <a class="btn btn--outline" href="/onde-estamos">Mais detalhes</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quero ser associado -->
+<section class="section section--green" id="associar">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Associe-se</span>
+      <h2>Quero ser associado</h2>
+      <p class="lead" style="margin-top:.8rem;">
+        Ser associado é fazer parte de uma cooperativa construída coletivamente, e ter acesso
+        às soluções de crédito, benefícios e serviços da Copetro.
+      </p>
+    </div>
+
+    <div class="grid grid--3" data-reveal-stagger>
+      <article class="card card--outline-light">
+        <h3>1. Entre em contato</h3>
+        <p>Fale com nosso atendimento pelo formulário acima ou pelos canais oficiais.</p>
+      </article>
+      <article class="card card--outline-light">
+        <h3>2. Envie seus dados</h3>
+        <p>Nosso time informa os documentos necessários e acompanha seu cadastro.</p>
+      </article>
+      <article class="card card--outline-light">
+        <h3>3. Faça parte</h3>
+        <p>Com o cadastro aprovado, você passa a participar da cooperativa e acessar os serviços.</p>
+      </article>
+    </div>
+
+    <div class="btn-row mt-lg">
+      <a class="btn btn--light" href="#contato">Falar com a Copetro</a>
+    </div>
+  </div>
+</section>
+
+<!-- FAQ -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+      <p>Encontre respostas para as perguntas mais frequentes.</p>
+    </div>
+
+    <div class="accordion" data-reveal>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="faq-1">
+          O que é uma cooperativa de crédito?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="faq-1">
+          <p>
+            É uma instituição criada pela união de pessoas para oferecer serviços financeiros aos
+            próprios associados. Quem usa os serviços também é dono da cooperativa.
+            <a href="/cooperativismo">Entenda melhor o cooperativismo</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="faq-2">
+          Como faço para me associar?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="faq-2">
+          <p>
+            Basta entrar em contato com o nosso atendimento. Nosso time informa os documentos
+            necessários e acompanha todo o processo. <a href="#associar">Veja o passo a passo</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="faq-3">
+          Como acesso a Área do Associado?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="faq-3">
+          <p>
+            A Área do Associado está em desenvolvimento. Assim que estiver disponível, o acesso
+            será feito com as credenciais enviadas no momento do cadastro.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="faq-4">
+          Como simulo um empréstimo?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="faq-4">
+          <p>
+            Use o <a href="/emprestimo#simulador">simulador de empréstimo</a> para estimar o valor
+            da parcela. Em seguida, solicite uma proposta com as condições do seu perfil.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="faq-5">
+          Como me protejo de golpes digitais?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="faq-5">
+          <p>
+            A Copetro nunca solicita senhas, códigos de verificação ou pagamentos por telefone,
+            e-mail ou mensagem. Na dúvida, encerre o contato e procure nossos canais oficiais.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

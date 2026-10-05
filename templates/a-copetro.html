@@ -1,0 +1,420 @@
+{% extends "_base.html" %}
+{% set page = 'a-copetro' %}
+
+{% block title %}Quem somos: história, missão e organização | Copetro{% endblock %}
+{% block description %}Há 56 anos, a Copetro cresce junto com seus associados, fortalecendo a cooperação, o desenvolvimento e a construção de novas possibilidades.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "{{ site_url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "A Copetro",
+      "item": "{{ canonical_url }}"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">A Copetro</span>
+      <h1>Há 56 anos crescendo junto com nossos associados.</h1>
+      <p class="lead">
+        A Copetro cresce junto com seus associados, fortalecendo a cooperação, o desenvolvimento
+        e a construção de novas possibilidades.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="#quem-somos">Conheça nossa história</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Quem somos -->
+<section class="section" id="quem-somos">
+  <div class="container">
+    <div class="story__grid">
+      <div class="story__media" data-reveal>
+        <img src="{{ url_for('static', filename='img/foto-assembleia.webp') }}"
+             alt="Associados da Copetro reunidos em assembleia."
+             loading="lazy" width="800" height="534">
+      </div>
+      <div class="prose" data-reveal>
+        <span class="eyebrow">Quem somos</span>
+        <h2 style="margin-bottom:1.2rem;">Uma cooperativa nascida da união de pessoas.</h2>
+        <p class="lead">
+          A <strong>Copetro é uma Cooperativa de Economia e Crédito Mútuo</strong> que nasceu da união
+          de pessoas com um propósito em comum: cooperar para construir oportunidades.
+        </p>
+        <p class="lead">
+          Por meio da cooperação e da mutualidade, buscamos oferecer soluções financeiras e um
+          relacionamento próximo aos nossos associados, contribuindo para seu crescimento e
+          desenvolvimento.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Visão e Missão -->
+<section class="section section--green">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Nosso norte</span>
+      <h2>Nossa visão e missão</h2>
+    </div>
+
+    <div class="grid grid--2" data-reveal-stagger>
+      <article class="card card--outline-light">
+        <div class="card__icon" style="background: rgba(255,255,255,.12); color: var(--lime-300);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1.8 12S5.5 5.2 12 5.2 22.2 12 22.2 12 18.5 18.8 12 18.8 1.8 12 1.8 12z"/>
+            <circle cx="12" cy="12" r="3.1"/>
+          </svg>
+        </div>
+        <h3>Visão</h3>
+        <p>
+          Ampliar continuamente a área de atuação e o campo de negócios, buscando a constante
+          superação das expectativas dos cooperados.
+        </p>
+      </article>
+
+      <article class="card card--outline-light">
+        <div class="card__icon" style="background: rgba(255,255,255,.12); color: var(--lime-300);">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.6"/>
+            <circle cx="12" cy="12" r="4.6"/>
+            <circle cx="12" cy="12" r="1" fill="currentColor" stroke="none"/>
+          </svg>
+        </div>
+        <h3>Missão</h3>
+        <p>
+          Ser a melhor solução como fornecedora de capital, contribuindo para a integração dos
+          associados, através de assessoria sócio-cultural, como entidade cidadã.
+        </p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Princípios -->
+<section class="section" id="principios">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Princípios</span>
+      <h2>O que orienta a nossa prática</h2>
+      <p>
+        Cinco compromissos que valem para o atendimento no balcão, para a análise de um
+        crédito e para a decisão em assembleia.
+      </p>
+    </div>
+
+    <div class="bento bento--5" data-reveal-stagger>
+      <article class="card principio">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z"/>
+          </svg>
+        </div>
+        <h3>Plenitude do ser humano</h3>
+        <p>Busca constante da plenitude do ser humano.</p>
+      </article>
+      <article class="card principio">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3 11.5a8.5 8.5 0 0 1 17 0v5.2a2 2 0 0 1-2 2h-2.4v-6H20"/><path d="M3 12.7h4.4v6H5a2 2 0 0 1-2-2z"/>
+          </svg>
+        </div>
+        <h3>Qualidade no atendimento</h3>
+        <p>Acesso a dados, serviços e informações de forma rápida e prática.</p>
+      </article>
+      <article class="card principio">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3.5 17.5 9 12l3.5 3.5L20.5 7"/><path d="M15.5 7h5v5"/>
+          </svg>
+        </div>
+        <h3>Desenvolvimento dos associados</h3>
+        <p>Pleno desenvolvimento dos associados.</p>
+      </article>
+      <article class="card principio">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 3v18M5 7h14"/><path d="M5 7 2.5 14a3 3 0 0 0 5 0z"/><path d="M19 7l-2.5 7a3 3 0 0 0 5 0z"/><path d="M8.5 21h7"/>
+          </svg>
+        </div>
+        <h3>Ética</h3>
+        <p>Ética nos relacionamentos.</p>
+      </article>
+      <article class="card principio">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M12 20.5c-4.5 0-7-3-7-7 0-4.5 3.5-8.5 11-9.5 1 7.5-2 16.5-9.5 16.5"/><path d="M5.5 20.5c1.5-4 4-7 7.5-9"/>
+          </svg>
+        </div>
+        <h3>Responsabilidade</h3>
+        <p>Responsabilidade social e respeito ao meio ambiente.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Organização -->
+<section class="section section--cream" id="organizacao">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Organização</span>
+      <h2>Como a cooperativa se organiza</h2>
+      <p>
+        A estrutura da Copetro segue o que determina o Estatuto Social: quem decide são os
+        associados, reunidos em assembleia.
+      </p>
+    </div>
+
+    <div class="grid grid--2" data-reveal-stagger>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c.6-3.3 3.2-5.2 6.5-5.2s5.9 1.9 6.5 5.2"/>
+            <path d="M16.5 5.2a3.2 3.2 0 0 1 0 5.6M18 13.9c2 .7 3.3 2.4 3.7 5.1"/>
+          </svg>
+        </div>
+        <h3>Assembleia Geral</h3>
+        <p>
+          O órgão supremo da cooperativa. É onde os associados discutem e votam os rumos da
+          Copetro, e suas decisões valem para todos, inclusive para quem não compareceu ou
+          discordou.
+        </p>
+      </article>
+
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 8.5 12 3 3.5 8.5"/><path d="M5 10v8m14-8v8"/><path d="M3 21h18"/><path d="M9.5 10v8m5-8v8"/>
+          </svg>
+        </div>
+        <h3>Conselho de Administração</h3>
+        <p>
+          Seis membros eleitos para mandato de quatro anos, sendo cinco efetivos e um suplente.
+          Define as diretrizes de atuação e acompanha os resultados.
+        </p>
+      </article>
+
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/>
+          </svg>
+        </div>
+        <h3>Conselho Fiscal</h3>
+        <p>
+          Seis membros, três efetivos e três suplentes, com mandato de um ano. Fiscaliza as
+          atividades da cooperativa, examinando livros e documentos.
+        </p>
+      </article>
+
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 2.5 4.5 13.5H11l-.8 8L19 10.5h-6.4z"/>
+          </svg>
+        </div>
+        <h3>Diretoria Executiva</h3>
+        <p>
+          Formada por Diretor Presidente, Diretor Administrativo e Diretor Financeiro, escolhidos
+          entre os conselheiros. Executa as decisões do Conselho com apoio das assessorias e
+          departamentos.
+        </p>
+      </article>
+    </div>
+
+    <div class="highlight" data-reveal style="margin-top: clamp(32px, 4vw, 48px);">
+      <h3 style="margin-top:0;">Quem fiscaliza a Copetro</h3>
+      <p style="margin-bottom:0;">
+        Como cooperativa de crédito, a Copetro integra o Sistema Financeiro Nacional e é
+        supervisionada pelo <strong>Banco Central do Brasil</strong>, que define a legislação e
+        as resoluções aplicáveis ao setor.
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- Conselheiros -->
+<section class="section" id="conselheiros">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Conselheiros</span>
+      <h2>Quem representa os associados</h2>
+      <p>
+        Os conselheiros são eleitos pelos próprios associados, em assembleia, conforme o
+        Regulamento Eleitoral.
+      </p>
+    </div>
+
+    <ul class="people" data-reveal-stagger>
+        <li>
+          <span class="people__initials" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/></svg></span>
+          <span class="people__name">Eustaquio Tadeu Noronha</span>
+        </li>
+        <li>
+          <span class="people__initials" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/></svg></span>
+          <span class="people__name">Ignacia Luiza Costa Pinto de Pádua</span>
+        </li>
+        <li>
+          <span class="people__initials" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/></svg></span>
+          <span class="people__name">Marcio Gonzaga Lelis</span>
+        </li>
+        <li>
+          <span class="people__initials" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/></svg></span>
+          <span class="people__name">Milton Igino de Oliveira</span>
+        </li>
+        <li>
+          <span class="people__initials" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/></svg></span>
+          <span class="people__name">Nicolino Milanez</span>
+        </li>
+        <li>
+          <span class="people__initials" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/></svg></span>
+          <span class="people__name">Vania Lúcia da Rocha</span>
+        </li>
+    </ul>
+
+    <p class="form-note" data-reveal style="margin-top:1.6rem;">
+      A distribuição entre Conselho de Administração e Conselho Fiscal e os cargos da Diretoria
+      Executiva serão publicados nesta página. Consulte o
+      <a href="{{ url_for('static', filename='docs/REGULAMENTOELEITORALRev01.pdf') }}"
+         target="_blank" rel="noopener">Regulamento Eleitoral</a> e o
+      <a href="{{ url_for('static', filename='docs/EstatutoPDF.pdf') }}"
+         target="_blank" rel="noopener">Estatuto Social</a> para as regras de composição.
+    </p>
+  </div>
+</section>
+
+<!-- Estatuto -->
+<section class="section section--cream" id="estatuto">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow">Transparência</span>
+        <h2>Estatuto Social</h2>
+        <p class="lead" style="margin-top:1rem;">
+          O Estatuto Social reúne as regras que organizam o funcionamento da cooperativa, os
+          direitos e deveres dos associados e a forma como as decisões são tomadas.
+        </p>
+      </div>
+      <div>
+        <ul class="feature-list" data-reveal-stagger>
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M6 2.8h8l4.2 4.2v14.2H6z"/>
+                <path d="M14 2.8V7h4.2"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Estatuto Social</h3>
+              <p>
+                Documento com as normas que regem a Copetro.
+                <a href="{{ url_for('static', filename='docs/EstatutoPDF.pdf') }}"
+                   target="_blank" rel="noopener">Abrir o Estatuto em PDF</a>.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="9" cy="8" r="3.2"/>
+                <path d="M2.5 19c.6-3.3 3.2-5.2 6.5-5.2s5.9 1.9 6.5 5.2"/>
+                <path d="M16.5 5.2a3.2 3.2 0 0 1 0 5.6"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Assembleias Gerais</h3>
+              <p>Espaço em que os associados decidem os rumos da cooperativa: um associado, um voto.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Regulamentações -->
+<section class="section" id="regulamentacoes">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Regulamentações</span>
+      <h2>Como a Copetro é regulada</h2>
+      <p>
+        Cooperativas de economia e crédito mútuo seguem normas específicas que garantem
+        segurança e transparência para os associados.
+      </p>
+    </div>
+
+    <div class="grid grid--3" data-reveal-stagger>
+      <article class="card card--plain">
+        <h3>Legislação do cooperativismo</h3>
+        <p>
+          Lei nº 5.764/1971 e, para cooperativas de crédito, Lei Complementar nº 130/2009.
+        </p>
+      </article>
+      <article class="card card--plain">
+        <h3>Supervisão do Banco Central</h3>
+        <p>
+          Integramos o Sistema Financeiro Nacional e somos supervisionados pelo Banco Central
+          do Brasil.
+        </p>
+      </article>
+      <article class="card card--plain">
+        <h3>Proteção de dados</h3>
+        <p>
+          O tratamento de dados pessoais segue a LGPD, Lei nº 13.709/2018. Veja a
+          <a href="/politica-de-privacidade">Política de Privacidade</a>.
+        </p>
+      </article>
+    </div>
+
+    <div class="highlight" data-reveal style="margin-top: clamp(32px, 4vw, 48px);">
+      <h3 style="margin-top:0;">Políticas e manuais</h3>
+      <p style="margin-bottom:1.2rem;">
+        Código de Ética, Regimento Interno, Manual de Ouvidoria, Política de Segurança
+        Cibernética e demais documentos públicos estão disponíveis para download.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--primary" href="/regulamentacoes">Ver todos os documentos</a>
+        <a class="btn btn--outline" href="/ouvidoria">Ouvidoria</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Quer fazer parte da Copetro?</h2>
+      <p>Entenda como se associar e participar de uma cooperativa construída coletivamente.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#associar">Quero ser associado</a>
+      <a class="btn btn--outline" href="/cooperativismo">Entenda o cooperativismo</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

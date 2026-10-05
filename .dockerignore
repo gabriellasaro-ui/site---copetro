@@ -1,0 +1,26 @@
+# nada disso entra na imagem
+.git
+.gitignore
+.gitattributes
+.env
+.env.*
+!.env.example
+.venv
+venv
+__pycache__/
+*.pyc
+*.log
+
+# conteudo editado em runtime vive no volume /data, nunca na imagem
+data/
+
+# material de trabalho, fora do site
+Estrutura do site - imagens/
+Ref criativa/
+fontes/
+scripts/
+!scripts/minificar.py
+README.md
+docker-compose.yml
+Dockerfile
+.dockerignore

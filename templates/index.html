@@ -1,0 +1,335 @@
+{% extends "_base.html" %}
+{% set page = 'index' %}
+
+{% block title %}Copetro | Cooperativa de Crédito em Belo Horizonte, MG{% endblock %}
+{% block description %}Há 56 anos, a Copetro oferece crédito, benefícios e serviços financeiros aos seus associados. Cooperar é ter com quem contar. Simule seu empréstimo.{% endblock %}
+
+{% block head_extra %}
+  <link rel="preload" as="image" fetchpriority="high"
+        href="{{ url_for('static', filename='img/hero-mobile.webp') }}" media="(max-width: 47.5em)">
+  <link rel="preload" as="image" fetchpriority="high"
+        href="{{ url_for('static', filename='img/hero-desktop.webp') }}" media="(min-width: 47.5em)">
+{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "O que é a Copetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "A Copetro é uma Cooperativa de Economia e Crédito Mútuo fundada em 1970. Ela nasceu da união de pessoas com um propósito em comum: cooperar para construir oportunidades. Oferece soluções financeiras, crédito e benefícios exclusivamente aos seus associados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "O que é uma cooperativa de crédito?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "É uma instituição financeira criada pela união de pessoas para oferecer serviços financeiros aos próprios associados. Diferente de um banco, quem usa os serviços também é dono da cooperativa: as decisões são tomadas em assembleia, no princípio de um associado, um voto, e as sobras do exercício retornam aos associados."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quem pode contratar um empréstimo na Copetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As linhas de crédito da Copetro são destinadas aos associados da cooperativa. Quem ainda não é associado pode entrar em contato pelos canais oficiais para entender como fazer parte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Como me torno associado da Copetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "O processo começa com um contato pelo formulário do site ou pelos canais oficiais. A equipe informa os documentos necessários e acompanha o cadastro. Com o cadastro aprovado, o associado passa a participar da cooperativa e a acessar os serviços."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero hero--photo">
+  <picture class="hero__bg">
+    <source media="(max-width: 47.5em)" srcset="{{ url_for('static', filename='img/hero-mobile.webp') }}">
+    <img src="{{ url_for('static', filename='img/hero-desktop.webp') }}" alt=""
+         width="1672" height="941" fetchpriority="high">
+  </picture>
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Cooperativa de crédito · desde 1970</span>
+      <h1>Cooperar é ter com quem contar.</h1>
+      <p class="lead">
+        Soluções financeiras, benefícios e serviços pensados para quem faz parte da Copetro.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="/emprestimo#simulador">Simule seu empréstimo</a>
+        <a class="btn btn--ghost-light" href="/a-copetro">Conheça a Copetro</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Faixa de credibilidade -->
+<div class="trust-bar">
+  <div class="container trust-bar__inner" data-reveal-stagger>
+    <span class="trust-bar__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 2.8 20 6v6c0 5-3.4 8.4-8 9.2-4.6-.8-8-4.2-8-9.2V6z"/><path d="m8.8 12 2.3 2.3 4.4-4.4"/>
+      </svg>
+      56 anos de história
+    </span>
+    <span class="trust-bar__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c.6-3.3 3.2-5.2 6.5-5.2s5.9 1.9 6.5 5.2"/><path d="M16.5 5.2a3.2 3.2 0 0 1 0 5.6"/>
+      </svg>
+      Um associado, um voto
+    </span>
+    <span class="trust-bar__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M20.5 8.5 12 3 3.5 8.5"/><path d="M5 10v8m14-8v8M3 21h18M9.5 10v8m5-8v8"/>
+      </svg>
+      Cooperativismo de crédito
+    </span>
+    <span class="trust-bar__item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+        <path d="M12 21.5s7.5-4.6 7.5-9.7A4.3 4.3 0 0 0 12 8a4.3 4.3 0 0 0-7.5 3.8c0 5.1 7.5 9.7 7.5 9.7z"/>
+      </svg>
+      Atuação em Minas Gerais
+    </span>
+  </div>
+</div>
+
+<!-- Como podemos ajudar -->
+<section class="section">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">Atalhos</span>
+      <h2>Como podemos ajudar?</h2>
+      <p>Encontre rapidamente o serviço que você procura.</p>
+    </div>
+
+    <div class="grid grid--4" data-reveal-stagger>
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="2" y="6" width="20" height="13" rx="2.5"/><path d="M2 10.5h20"/><path d="M6 15h4"/>
+          </svg>
+        </div>
+        <h3>Empréstimos</h3>
+        <p>Encontre a opção de crédito que combina com seus objetivos.</p>
+        <a class="btn btn--outline" href="/emprestimo">Conheça as opções</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/>
+          </svg>
+        </div>
+        <h3>Área do Associado</h3>
+        <p>Acesse seus dados, serviços e informações de forma rápida e prática.</p>
+        <span class="btn btn--outline is-disabled" aria-disabled="true">Em breve</span>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 8.5 12 3 3.5 8.5"/><path d="M5 10v8m14-8v8"/><path d="M3 21h18"/><path d="M9.5 10v8m5-8v8"/>
+          </svg>
+        </div>
+        <h3>Convênios</h3>
+        <p>Confira benefícios e condições exclusivas para associados.</p>
+        <a class="btn btn--outline" href="/convenios">Ver convênios</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="9"/>
+            <path d="M9.4 9.2a2.7 2.7 0 1 1 3.3 3.3c-.5.2-.7.7-.7 1.2v.5"/><path d="M12 17.2h.01"/>
+          </svg>
+        </div>
+        <h3>Dúvidas</h3>
+        <p>Encontre respostas para as perguntas mais frequentes.</p>
+        <a class="btn btn--outline" href="/fale-conosco#faq">Tirar minhas dúvidas</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Uma cooperativa feita por pessoas -->
+<section class="section section--green story">
+  <div class="container">
+    <div class="story__grid">
+      <div class="story__media" data-reveal>
+        <img src="{{ url_for('static', filename='img/foto-equipe.webp') }}"
+             alt="Três profissionais sorrindo em um escritório, ao lado de computadores."
+             loading="lazy" width="800" height="534">
+        <div class="story__badge">
+          <strong>1970</strong>
+          <span>Ano de fundação</span>
+        </div>
+      </div>
+
+      <div class="story__content" data-reveal>
+        <span class="eyebrow">Nossa história</span>
+        <h2>Uma cooperativa feita por pessoas, para pessoas.</h2>
+        <p class="lead">
+          Há 56 anos, a Copetro constrói uma história baseada em cooperação, confiança
+          e participação.
+        </p>
+        <p class="lead">
+          Aqui, cada associado faz parte de uma comunidade que acredita que, quando
+          cooperamos, todos podem avançar.
+        </p>
+        <div class="btn-row">
+          <a class="btn btn--light" href="/a-copetro">Conheça nossa história</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="stats-strip" data-reveal-stagger>
+      <div class="stat">
+        <span class="stat__value"><span data-count="56" data-count-suffix=" anos">56 anos</span></span>
+        <p class="stat__label">De cooperativismo de crédito construído junto com os associados.</p>
+      </div>
+      <div class="stat">
+        <span class="stat__value"><span data-count="7">7</span> princípios</span>
+        <p class="stat__label">Os fundamentos do cooperativismo que orientam a nossa prática.</p>
+      </div>
+      <div class="stat">
+        <span class="stat__value">1 associado, 1 voto</span>
+        <p class="stat__label">Decisões tomadas de forma democrática, em assembleia.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Ser associado é fazer parte -->
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">Ser associado</span>
+        <h2>Ser associado é fazer parte.</h2>
+        <p class="lead" style="margin-top:1rem;">
+          Mais do que contratar um serviço, ser associado é participar de uma cooperativa
+          construída coletivamente.
+        </p>
+        <div class="btn-row mt-lg">
+          <a class="btn btn--primary" href="/fale-conosco#associar">Quero ser associado</a>
+        </div>
+      </div>
+
+      <ul class="feature-list" data-reveal-stagger>
+        <li>
+          <span class="feature-list__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <rect x="2.5" y="6" width="19" height="12" rx="2.5"/><circle cx="12" cy="12" r="2.6"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Crédito</h3>
+            <p>Soluções pensadas para diferentes momentos da sua vida.</p>
+          </div>
+        </li>
+        <li>
+          <span class="feature-list__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 3.5 14.6 9l6 .9-4.3 4.2 1 6-5.3-2.8-5.3 2.8 1-6L3.4 9.9 9.4 9z"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Benefícios</h3>
+            <p>Condições e vantagens disponíveis para associados.</p>
+          </div>
+        </li>
+        <li>
+          <span class="feature-list__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <circle cx="9" cy="8" r="3.2"/><path d="M2.5 19c.6-3.3 3.2-5.2 6.5-5.2s5.9 1.9 6.5 5.2"/>
+              <path d="M16.5 5.2a3.2 3.2 0 0 1 0 5.6M18 13.9c2 .7 3.3 2.4 3.7 5.1"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Participação</h3>
+            <p>Faça parte de uma cooperativa construída coletivamente.</p>
+          </div>
+        </li>
+        <li>
+          <span class="feature-list__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M20.5 11.5A8 8 0 1 1 12 3.5"/><path d="M21 4.2 12 13.2l-2.6-2.6"/>
+            </svg>
+          </span>
+          <div>
+            <h3>Relacionamento</h3>
+            <p>Uma cooperativa próxima de quem faz parte dela.</p>
+          </div>
+        </li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- Notícias -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">Conteúdos</span>
+      <h2>Notícias</h2>
+      <p>Acompanhe as dicas, novidades e informações sobre o setor.</p>
+    </div>
+
+    <div class="grid grid--4" data-reveal-stagger>
+      {% for p in posts %}
+      <a class="news-card" href="/conteudos/{{ p.slug }}">
+        <div class="news-card__thumb">
+          {% if p.imagem %}
+          <img src="{{ media_url(p.imagem) }}"
+               srcset="{{ media_srcset(p.imagem) }}"
+               sizes="(max-width: 47.5em) 92vw, (max-width: 64em) 45vw, 280px"
+               alt="" loading="lazy" width="880" height="550">
+          {% endif %}
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__tag">{{ p.categoria }}</span>
+            <time class="news-card__date" datetime="{{ p.data_iso }}">{{ p.data }}</time>
+          </div>
+          <span class="news-card__title">{{ p.titulo }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+
+    <div class="text-center mt-lg">
+      <a class="link-arrow" href="/conteudos">Ver todos os conteúdos</a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Pronto para fazer parte?</h2>
+      <p>Fale com a Copetro e entenda como se associar e acessar as soluções de crédito.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#associar">Quero ser associado</a>
+      <a class="btn btn--outline" href="/emprestimo#simulador">Simule seu empréstimo</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

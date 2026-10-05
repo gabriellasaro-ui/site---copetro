@@ -1,0 +1,377 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#009a44">
+
+  <title>{% block title %}Copetro{% endblock %}</title>
+  <meta name="description" content="{% block description %}Cooperativa de Economia e Crédito Mútuo. Soluções financeiras, benefícios e serviços pensados para quem faz parte da Copetro.{% endblock %}">
+  <link rel="canonical" href="{{ canonical_url }}">
+  <meta name="robots" content="{% block robots %}index, follow, max-image-preview:large, max-snippet:-1{% endblock %}">
+  <meta name="author" content="Copetro">
+
+  <!-- Open Graph / redes sociais -->
+  <meta property="og:type" content="{% block og_type %}website{% endblock %}">
+  <meta property="og:site_name" content="Copetro">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="{{ canonical_url }}">
+  <meta property="og:title" content="{{ self.title() }}">
+  <meta property="og:description" content="{{ self.description() }}">
+  <meta property="og:image" content="{% block og_imagem %}{{ site_url }}{{ url_for('static', filename='img/og-image.png') }}{% endblock %}">
+  {% block og_dimensoes %}<meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">{% endblock %}
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ self.title() }}">
+  <meta name="twitter:description" content="{{ self.description() }}">
+  <meta name="twitter:image" content="{{ self.og_imagem() }}">
+  {% block meta_extra %}{% endblock %}
+
+  <!-- Geo: cooperativa com atuação em Minas Gerais -->
+  <meta name="geo.region" content="BR-MG">
+  <meta name="geo.placename" content="Minas Gerais, Brasil">
+  <meta name="ICBM" content="-19.9167, -43.9345">
+
+  <link rel="icon" href="{{ url_for('static', filename='img/logo-mark.png') }}" type="image/png">
+  <link rel="apple-touch-icon" href="{{ url_for('static', filename='img/logo-mark.png') }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ url_for('static', filename='fonts/inter-latin.woff2') }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ url_for('static', filename='fonts/poppins-700-latin.woff2') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  {% block head_extra %}{% endblock %}
+
+  <!-- Dados estruturados: identidade da organização -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": ["FinancialService", "Organization"],
+        "@id": "{{ site_url }}/#organizacao",
+        "name": "Copetro",
+        "legalName": "COPETRO, Cooperativa de Economia e Crédito Mútuo dos Petroleiros no Estado de Minas Gerais",
+        "taxID": "26.758.433/0001-02",
+        "alternateName": "Cooperativa de Economia e Crédito Mútuo Copetro",
+        "url": "{{ site_url }}/",
+        "logo": "{{ site_url }}{{ url_for('static', filename='img/logo-full-dark.png') }}",
+        "image": "{{ site_url }}{{ url_for('static', filename='img/og-image.png') }}",
+        "foundingDate": "1970",
+        "description": "Cooperativa de Economia e Crédito Mútuo que oferece linhas de crédito, benefícios e serviços financeiros aos seus associados, no modelo de cooperativismo de crédito.",
+        "areaServed": { "@type": "State", "name": "Minas Gerais" },
+        "telephone": "+55-31-3201-4412",
+        "email": "faleconosco@copetro.org.br",
+        "address": {
+          "@type": "PostalAddress",
+          "streetAddress": "Avenida Paraná, 485, 5º andar, Centro",
+          "addressLocality": "Belo Horizonte",
+          "addressRegion": "MG",
+          "postalCode": "30120-020",
+          "addressCountry": "BR"
+        },
+        "contactPoint": {
+          "@type": "ContactPoint",
+          "contactType": "customer service",
+          "telephone": "+55-31-3201-4412",
+          "email": "faleconosco@copetro.org.br",
+          "areaServed": "BR",
+          "availableLanguage": "Portuguese"
+        },
+        "sameAs": ["https://www.instagram.com/copetro_mg/"],
+        "knowsAbout": [
+          "Cooperativismo de crédito",
+          "Empréstimo pessoal para associados",
+          "Educação financeira",
+          "Crédito mútuo"
+        ]
+      },
+      {
+        "@type": "WebSite",
+        "@id": "{{ site_url }}/#site",
+        "url": "{{ site_url }}/",
+        "name": "Copetro",
+        "inLanguage": "pt-BR",
+        "publisher": { "@id": "{{ site_url }}/#organizacao" }
+      },
+      {
+        "@type": "WebPage",
+        "@id": "{{ canonical_url }}#pagina",
+        "url": "{{ canonical_url }}",
+        "name": {{ self.title()|tojson }},
+        "description": {{ self.description()|tojson }},
+        "inLanguage": "pt-BR",
+        "isPartOf": { "@id": "{{ site_url }}/#site" },
+        "about": { "@id": "{{ site_url }}/#organizacao" }
+      }
+    ]
+  }
+  </script>
+  {% block schema %}{% endblock %}
+</head>
+<body data-whatsapp="{{ whatsapp }}">
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
+
+  <!-- Banner de consentimento (LGPD, art. 8º).
+       Fica no INICIO do HTML de proposito: e fixo na parte de baixo da tela, mas quem
+       navega por teclado precisa alcança-lo sem percorrer a pagina inteira. -->
+  <div class="cookie-banner" data-cookie-banner role="dialog" aria-live="polite"
+         aria-labelledby="cookie-titulo" aria-describedby="cookie-texto">
+    <h2 id="cookie-titulo">Este site usa cookies</h2>
+    <p id="cookie-texto">
+      Usamos cookies necessários para o site funcionar e, com o seu consentimento, cookies de
+      desempenho e marketing. Você pode escolher o que aceitar e mudar de ideia quando quiser.
+      Saiba mais na <a href="/politica-de-cookies">Política de Cookies</a>.
+    </p>
+
+    <div class="cookie-prefs" data-cookie-prefs>
+      <div class="cookie-opt">
+        <input type="checkbox" id="cookie-necessarios" checked disabled>
+        <label for="cookie-necessarios">
+          <strong>Necessários (sempre ativos)</strong>
+          <span>Essenciais para navegação, segurança e funcionamento do site.</span>
+        </label>
+      </div>
+      <div class="cookie-opt">
+        <input type="checkbox" id="cookie-desempenho">
+        <label for="cookie-desempenho">
+          <strong>Desempenho</strong>
+          <span>Ajudam a entender como o site é usado, de forma agregada, para melhorá-lo.</span>
+        </label>
+      </div>
+      <div class="cookie-opt">
+        <input type="checkbox" id="cookie-marketing">
+        <label for="cookie-marketing">
+          <strong>Marketing</strong>
+          <span>Permitem medir campanhas e exibir comunicações mais relevantes.</span>
+        </label>
+      </div>
+      <div class="btn-row">
+        <button class="btn btn--primary" type="button" data-cookie-save>Salvar preferências</button>
+      </div>
+    </div>
+
+    <div class="btn-row">
+      <button class="btn btn--primary" type="button" data-cookie-accept>Aceitar todos</button>
+      <button class="btn btn--outline" type="button" data-cookie-reject>Apenas necessários</button>
+      <button class="btn btn--outline" type="button" data-cookie-configure aria-expanded="false">Configurar</button>
+    </div>
+  </div>
+
+  {% set page = page|default('') %}
+
+  <!-- Barra de utilidades: canais que precisam estar sempre a um clique -->
+  <div class="topbar" role="region" aria-label="Atalhos de atendimento">
+    <div class="container topbar__inner">
+      <a class="topbar__phone" href="tel:+553132014412">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M4.5 5.5h4l1.6 4-2 1.4a12 12 0 0 0 5 5l1.4-2 4 1.6v4a1.4 1.4 0 0 1-1.6 1.4A16.5 16.5 0 0 1 3.1 7.1 1.4 1.4 0 0 1 4.5 5.5z"/>
+        </svg>
+        (31) 3201-4412
+      </a>
+      <nav class="topbar__nav" aria-label="Canais de atendimento">
+        <a href="/ouvidoria">Ouvidoria</a>
+        <a href="/regulamentacoes">Regulamentações</a>
+        <a href="/onde-estamos">Onde estamos</a>
+        <a href="/fale-conosco#faq">Dúvidas</a>
+        <a href="/acessibilidade">Acessibilidade</a>
+      </nav>
+        <button class="topbar__search" type="button" data-search-open
+                aria-expanded="false" aria-controls="painel-busca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/>
+          </svg>
+          Buscar
+        </button>
+    </div>
+  </div>
+
+  <header class="header">
+    <div class="container header__inner">
+      <a class="logo logo--lockup" href="/" aria-label="Copetro, página inicial">
+        <img src="{{ url_for('static', filename='img/logo-header.webp') }}" alt="Copetro" width="264" height="88">
+      </a>
+
+      <button class="nav-toggle" type="button" data-nav-toggle aria-expanded="false" aria-controls="nav-principal">
+        <span class="visually-hidden">Abrir menu</span>
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <path d="M3 6h18M3 12h18M3 18h18"/>
+        </svg>
+      </button>
+
+      <nav class="nav" id="nav-principal" data-nav aria-label="Navegação principal">
+        <ul class="nav__list">
+          <li class="nav__item" data-dropdown>
+            <button class="nav__link {% if page in ['a-copetro', 'estatuto', 'regulamentacoes'] %}is-active{% endif %}"
+                    type="button" data-dropdown-trigger aria-expanded="false">
+              A Copetro
+              <svg class="nav__caret" viewBox="0 0 12 12" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                <path d="M2 4.5 6 8.5 10 4.5"/>
+              </svg>
+            </button>
+            <ul class="nav__sub">
+              <li><a href="/a-copetro">Quem Somos</a></li>
+              <li><a href="/a-copetro#estatuto">Estatuto</a></li>
+              <li><a href="/regulamentacoes">Regulamentações</a></li>
+              <li><a href="/ouvidoria">Ouvidoria</a></li>
+              <li><a href="/canal-de-denuncias">Canal de Denúncias</a></li>
+              <li><a href="/onde-estamos">Onde estamos</a></li>
+            </ul>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {% if page == 'cooperativismo' %}is-active{% endif %}" href="/cooperativismo">Cooperativismo</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {% if page == 'emprestimo' %}is-active{% endif %}" href="/emprestimo">Empréstimo</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {% if page == 'conteudos' %}is-active{% endif %}" href="/conteudos">Conteúdos</a>
+          </li>
+          <li class="nav__item">
+            <a class="nav__link {% if page == 'fale-conosco' %}is-active{% endif %}" href="/fale-conosco">Fale Conosco</a>
+          </li>
+        </ul>
+        <div class="nav__utils">
+          <p class="nav__utils-title">Atendimento</p>
+          <ul>
+            <li><a href="/ouvidoria">Ouvidoria</a></li>
+            <li><a href="/canal-de-denuncias">Canal de Denúncias</a></li>
+            <li><a href="/regulamentacoes">Regulamentações</a></li>
+            <li><a href="/onde-estamos">Onde estamos</a></li>
+            <li><a href="/acessibilidade">Acessibilidade</a></li>
+            <li><a href="tel:+553132014412">(31) 3201-4412</a></li>
+          </ul>
+        </div>
+
+        <div class="nav__cta-mobile">
+          <span class="btn btn--primary btn--sm is-disabled" aria-disabled="true" title="Em breve">Área do Associado</span>
+        </div>
+      </nav>
+
+      <div class="header__cta">
+        <span class="btn btn--primary btn--sm is-disabled" aria-disabled="true" title="Em breve">Área do Associado</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Painel de busca: abre do topo, com foco automatico -->
+  <div class="search-panel" id="painel-busca" data-search-panel role="region" aria-label="Busca no site" hidden>
+    <div class="container search-panel__inner">
+      <form class="search-form" action="/busca" method="get" role="search">
+        <label class="visually-hidden" for="busca-topo">Buscar no site</label>
+        <svg class="search-form__icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/>
+        </svg>
+        <input type="search" id="busca-topo" name="q" data-search-input
+               placeholder="Empréstimo, ouvidoria, estatuto, golpes..." autocomplete="off">
+        <button class="btn btn--primary" type="submit">Buscar</button>
+        <button class="search-panel__close" type="button" data-search-close aria-label="Fechar busca">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true">
+            <path d="M6 6l12 12M18 6L6 18"/>
+          </svg>
+        </button>
+      </form>
+      <div class="search-panel__hints">
+        <span>Buscas comuns:</span>
+        <a href="/busca?q=empr%C3%A9stimo">Empréstimo</a>
+        <a href="/busca?q=ouvidoria">Ouvidoria</a>
+        <a href="/busca?q=estatuto">Estatuto</a>
+        <a href="/busca?q=golpes">Golpes digitais</a>
+        <a href="/busca?q=associar">Como me associar</a>
+      </div>
+    </div>
+  </div>
+
+  <main id="conteudo">
+    {% block content %}{% endblock %}
+  </main>
+
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__top">
+        <div>
+          <a class="logo logo--lockup" href="/" aria-label="Copetro, página inicial">
+            <img src="{{ url_for('static', filename='img/logo-header.webp') }}" alt="Copetro" width="264" height="88">
+          </a>
+          <p class="footer__about">
+            <strong>COPETRO</strong>, Cooperativa de Economia e Crédito Mútuo dos Petroleiros
+            no Estado de Minas Gerais. Há 56 anos construindo uma história baseada em
+            cooperação, confiança e participação.
+          </p>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__title">A Copetro</p>
+          <ul>
+            <li><a href="/a-copetro">Quem Somos</a></li>
+            <li><a href="{{ url_for('static', filename='docs/EstatutoPDF.pdf') }}" target="_blank" rel="noopener">Estatuto</a></li>
+            <li><a href="/regulamentacoes">Regulamentações</a></li>
+            <li><a href="/cooperativismo">Cooperativismo</a></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__title">Soluções</p>
+          <ul>
+            <li><a href="/emprestimo">Empréstimo</a></li>
+            <li><a href="/emprestimo#simulador">Simule seu empréstimo</a></li>
+            <li><a href="/convenios">Convênios</a></li>
+            <li><span class="footer__soon">Área do Associado <em>(em breve)</em></span></li>
+          </ul>
+        </div>
+
+        <div class="footer__col">
+          <p class="footer__title">Atendimento</p>
+          <ul>
+            <li><a href="tel:+553132014412">(31) 3201-4412</a></li>
+            <li><a href="mailto:faleconosco@copetro.org.br">faleconosco@copetro.org.br</a></li>
+            <li><a href="/fale-conosco">Fale Conosco</a></li>
+            <li><a href="/fale-conosco#faq">Dúvidas frequentes</a></li>
+            <li><a href="/ouvidoria">Ouvidoria</a></li>
+            <li><a href="/canal-de-denuncias">Canal de Denúncias</a></li>
+            <li><a href="/onde-estamos">Onde estamos</a></li>
+            <li><a href="https://www.instagram.com/copetro_mg/" target="_blank" rel="noopener">@copetro_mg</a></li>
+          </ul>
+          <address class="footer__address">
+            Avenida Paraná, 485, 5º andar, Centro<br>Belo Horizonte, MG, 30120-020<br>
+            <span class="footer__cnpj">CNPJ 26.758.433/0001-02</span>
+          </address>
+        </div>
+      </div>
+
+      <div class="footer__bottom">
+        <p>&copy; <span data-year>2026</span> COPETRO, Cooperativa de Economia e Crédito Mútuo dos Petroleiros no Estado de Minas Gerais. Todos os direitos reservados.</p>
+        <ul class="footer__legal">
+          <li><a href="/politica-de-privacidade">Política de Privacidade</a></li>
+          <li><a href="/politica-de-cookies">Política de Cookies</a></li>
+          <li><a href="/acessibilidade">Acessibilidade</a></li>
+          <li><a href="#" data-cookie-open>Gerenciar cookies</a></li>
+        </ul>
+        <div class="footer__social">
+          <a href="https://www.instagram.com/copetro_mg/" target="_blank" rel="noopener" aria-label="Instagram da Copetro">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <rect x="3" y="3" width="18" height="18" rx="5"/>
+              <circle cx="12" cy="12" r="4"/>
+              <circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/>
+            </svg>
+          </a>
+          <a href="/fale-conosco" aria-label="Fale conosco">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+              <path d="M4 5h16v14H4z"/>
+              <path d="m4 6 8 6 8-6"/>
+            </svg>
+          </a>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- VLibras: tradutor para Libras mantido pelo Governo Federal -->
+  <div vw class="enabled">
+    <div vw-access-button class="active"></div>
+    <div vw-plugin-wrapper><div class="vw-plugin-top-wrapper"></div></div>
+  </div>
+  <script src="https://vlibras.gov.br/app/vlibras-plugin.js" defer></script>
+
+  <script src="{{ asset('js/main.js') }}" defer></script>
+</body>
+</html>

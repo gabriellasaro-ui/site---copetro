@@ -1,0 +1,580 @@
+{% extends "_base.html" %}
+{% set page = 'emprestimo' %}
+
+{% block title %}Empréstimo para associados e simulador | Copetro{% endblock %}
+{% block description %}Encontre uma opção de empréstimo que faça sentido para o seu momento e conte com a Copetro para seguir em frente. Simule seu empréstimo.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "{{ site_url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Empréstimo",
+      "item": "{{ canonical_url }}"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Service",
+  "serviceType": "Empréstimo para associados de cooperativa de crédito",
+  "name": "Empréstimo Copetro",
+  "description": "Linhas de crédito destinadas aos associados da Copetro, com parcelas fixas e condições definidas após análise.",
+  "provider": {
+    "@type": "Organization",
+    "name": "Copetro",
+    "@id": "{{ site_url }}/#organizacao"
+  },
+  "areaServed": {
+    "@type": "State",
+    "name": "Minas Gerais"
+  },
+  "audience": {
+    "@type": "Audience",
+    "audienceType": "Associados da cooperativa"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Quem pode contratar um empréstimo na Copetro?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "As linhas de crédito são destinadas aos associados da cooperativa. Quem ainda não é associado pode entrar em contato para entender como fazer parte."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Os valores da simulação são definitivos?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Não. A simulação é uma estimativa para ajudar no planejamento. As condições finais, taxa, prazo e valor da parcela, dependem da análise da solicitação e das taxas vigentes."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Posso quitar o empréstimo antes do prazo?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Sim. A liquidação antecipada é um direito do associado e prevê o desconto proporcional dos juros."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Quais documentos preciso apresentar?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Em geral, documento de identificação com foto, CPF, comprovante de residência e comprovante de renda. A lista pode variar conforme a modalidade contratada."
+      }
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Empréstimo</span>
+      <h1>Crédito para realizar seus planos.</h1>
+      <p class="lead">
+        Encontre uma opção de empréstimo que faça sentido para o seu momento e conte com a Copetro
+        para seguir em frente.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="#simulador">Simule seu empréstimo</a>
+        <a class="btn btn--ghost-light" href="#opcoes">Ver as opções</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Opções de empréstimo -->
+<section class="section" id="opcoes">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Modalidades</span>
+      <h2>Escolha a opção de empréstimo que combina com seu momento</h2>
+      <p>Condições pensadas para as diferentes necessidades de quem faz parte da Copetro.</p>
+    </div>
+
+    <div class="grid grid--3" data-reveal-stagger>
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="8" r="3.6"/>
+            <path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/>
+          </svg>
+        </div>
+        <h3>Pessoal</h3>
+        <p>Para pagamento de dívidas e reorganização financeira.</p>
+        <a class="link-arrow" href="#simulador">Simular</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <rect x="3" y="4.5" width="18" height="16" rx="2.5"/>
+            <path d="M3 9.5h18M8 2.8v3.4M16 2.8v3.4"/>
+          </svg>
+        </div>
+        <h3>Antecipação de 13º</h3>
+        <p>Receba antes o valor do seu décimo terceiro e organize o fim do ano com folga.</p>
+        <a class="link-arrow" href="#simulador">Simular</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19V10m5 9V5m5 14v-7m5 7V8"/>
+          </svg>
+        </div>
+        <h3>Antecipação de PLR</h3>
+        <p>Antecipe a participação nos lucros e resultados sem esperar o pagamento.</p>
+        <a class="link-arrow" href="#simulador">Simular</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M13 2.5 4.5 13.5H11l-.8 8L19 10.5h-6.4z"/>
+          </svg>
+        </div>
+        <h3>Crédito emergencial</h3>
+        <p>Para imprevistos que não podem esperar, com liberação rápida.</p>
+        <a class="link-arrow" href="#simulador">Simular</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M3.5 10.5 12 3.8l8.5 6.7"/>
+            <path d="M5.5 12v8h13v-8"/>
+            <path d="M10 20v-5h4v5"/>
+          </svg>
+        </div>
+        <h3>Reforma e construção</h3>
+        <p>Para melhorar, reformar ou concluir a obra da sua casa.</p>
+        <a class="link-arrow" href="#simulador">Simular</a>
+      </article>
+
+      <article class="card card--action">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M2.8 8.2 12 4l9.2 4.2L12 12.4z"/>
+            <path d="M6.5 10.2v5c0 1.6 2.5 2.9 5.5 2.9s5.5-1.3 5.5-2.9v-5"/>
+            <path d="M21.2 8.2v6"/>
+          </svg>
+        </div>
+        <h3>Educação</h3>
+        <p>Para investir na sua formação ou na de quem você ama.</p>
+        <a class="link-arrow" href="#simulador">Simular</a>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Simulador -->
+<section class="section section--cream" id="simulador">
+  <div class="container">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">Simulador</span>
+        <h2>Simule seu empréstimo</h2>
+        <p class="lead" style="margin-top:1rem;">
+          Conte o que você precisa e veja na hora a estimativa da parcela. Com os seus dados,
+          a Copetro já consegue preparar uma proposta com as condições do seu perfil.
+        </p>
+
+        <ul class="feature-list" data-reveal-stagger style="margin-top:2rem;">
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M20.5 11.5A8 8 0 1 1 12 3.5"/><path d="M21 4.2 12 13.2l-2.6-2.6"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Parcelas fixas</h3>
+              <p>O valor da parcela não muda ao longo do contrato.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <rect x="4.5" y="10.5" width="15" height="10" rx="2.4"/>
+                <path d="M8 10.5V7.4a4 4 0 0 1 8 0v3.1"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Sem compromisso</h3>
+              <p>Simular não gera contrato nem consulta ao seu CPF.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Atendimento próximo</h3>
+              <p>Uma cooperativa perto de quem faz parte dela.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="simulator" data-simulator data-rate="0.0149"
+           data-whatsapp="{{ whatsapp }}" data-reveal>
+
+        <!-- Etapa 1: qualificação -->
+        <div data-etapa="1">
+          <div class="etapas" aria-hidden="true">
+            <span class="etapas__item is-ativo">1. Seus dados</span>
+            <span class="etapas__item">2. Simulação</span>
+          </div>
+
+          <h3 style="margin-bottom:.4rem;">Vamos começar</h3>
+          <p class="form-note" style="margin-bottom:1.4rem;">
+            Leva menos de um minuto. Os campos com * são obrigatórios.
+          </p>
+
+          <form class="form-grid" data-lead-form novalidate>
+            <div class="form-field form-field--full">
+              <label for="lead-nome">Nome completo *</label>
+              <input type="text" id="lead-nome" name="nome" autocomplete="name" required>
+            </div>
+
+            <div class="form-field">
+              <label for="lead-tel">WhatsApp *</label>
+              <input type="tel" id="lead-tel" name="telefone" autocomplete="tel"
+                     inputmode="tel" placeholder="(31) 90000-0000" required>
+            </div>
+            <div class="form-field">
+              <label for="lead-email">E-mail</label>
+              <input type="email" id="lead-email" name="email" autocomplete="email">
+            </div>
+
+            <div class="form-field">
+              <label for="lead-assoc">Já é associado? *</label>
+              <select id="lead-assoc" name="associado">
+                <option value="">Selecione</option>
+                <option>Sim, sou associado</option>
+                <option>Não, quero me associar</option>
+                <option>Não sei dizer</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="lead-vinculo">Vínculo</label>
+              <select id="lead-vinculo" name="vinculo">
+                <option value="">Selecione</option>
+                <option>Petrobras</option>
+                <option>Empresa do setor de petróleo e gás</option>
+                <option>Aposentado ou pensionista</option>
+                <option>Familiar de associado</option>
+                <option>Outro</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label for="lead-fim">Finalidade do crédito *</label>
+              <select id="lead-fim" name="finalidade">
+                <option value="">Selecione</option>
+                <option>Pagamento de dívidas e reorganização financeira</option>
+                <option>Antecipação de 13º</option>
+                <option>Antecipação de PLR</option>
+                <option>Crédito emergencial</option>
+                <option>Reforma e construção</option>
+                <option>Educação</option>
+                <option>Outra</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="lead-valor">Valor desejado (R$) *</label>
+              <input type="number" id="lead-valor" name="valor" inputmode="numeric"
+                     min="1000" max="60000" step="500" placeholder="10000" required>
+            </div>
+            <div class="form-field">
+              <label for="lead-prazo">Prazo desejado</label>
+              <select id="lead-prazo" name="prazo">
+                <option value="12">12 meses</option>
+                <option value="24" selected>24 meses</option>
+                <option value="36">36 meses</option>
+                <option value="48">48 meses</option>
+                <option value="60">60 meses</option>
+              </select>
+            </div>
+
+            <div class="form-field">
+              <label for="lead-renda">Renda mensal aproximada</label>
+              <select id="lead-renda" name="renda">
+                <option value="">Prefiro não informar</option>
+                <option>Até R$ 3.000</option>
+                <option>De R$ 3.000 a R$ 6.000</option>
+                <option>De R$ 6.000 a R$ 10.000</option>
+                <option>De R$ 10.000 a R$ 15.000</option>
+                <option>Acima de R$ 15.000</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label for="lead-horario">Melhor horário para contato</label>
+              <select id="lead-horario" name="horario">
+                <option>Manhã</option>
+                <option selected>Tarde</option>
+                <option>Qualquer horário</option>
+              </select>
+            </div>
+
+            <div class="form-field form-field--full">
+              <label class="lead__consent">
+                <input type="checkbox" id="lead-ok" name="consentimento" required>
+                <span>
+                  Autorizo a Copetro a usar meus dados para retornar sobre esta solicitação,
+                  conforme a <a href="/politica-de-privacidade" target="_blank">Política de
+                  Privacidade</a>. *
+                </span>
+              </label>
+            </div>
+
+            <div class="form-field form-field--full">
+              <button class="btn btn--primary btn--block" type="submit">Ver minha simulação</button>
+              <p class="form-note" data-lead-status role="status" style="margin-top:.8rem;">
+                Seus dados ficam com a Copetro e não são compartilhados com terceiros.
+              </p>
+            </div>
+          </form>
+        </div>
+
+        <!-- Etapa 2: simulação -->
+        <div data-etapa="2" hidden>
+          <div class="etapas" aria-hidden="true">
+            <span class="etapas__item is-feito">1. Seus dados</span>
+            <span class="etapas__item is-ativo">2. Simulação</span>
+          </div>
+
+          <div class="sim-topo">
+            <h3>Sua simulação</h3>
+            <button class="sim-voltar" type="button" data-etapa-voltar>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M15 5l-7 7 7 7"/>
+              </svg>
+              Editar dados
+            </button>
+          </div>
+          <p class="form-note" data-sim-ola style="margin-bottom:1.4rem;"></p>
+
+          <div class="field">
+            <label class="field__label" for="sim-valor">
+              Valor do empréstimo
+              <span class="field__value" data-sim-amount-out>R$ 10.000,00</span>
+            </label>
+            <input type="range" id="sim-valor" data-sim-amount
+                   min="1000" max="60000" step="500" value="10000">
+            <div class="field__hint"><span>R$ 1.000</span><span>R$ 60.000</span></div>
+          </div>
+
+          <div class="field">
+            <label class="field__label" for="sim-prazo">
+              Prazo
+              <span class="field__value" data-sim-months-out>24x</span>
+            </label>
+            <input type="range" id="sim-prazo" data-sim-months
+                   min="6" max="60" step="1" value="24">
+            <div class="field__hint"><span>6 meses</span><span>60 meses</span></div>
+          </div>
+
+          <div class="sim-result">
+            <span class="sim-result__label">Parcela estimada</span>
+            <div class="sim-result__value" data-sim-installment>R$ 0,00</div>
+            <p class="sim-result__note">
+              Total estimado do contrato: <strong data-sim-total>R$ 0,00</strong>.
+              Cálculo pelo sistema de parcelas fixas (Price), com taxa ilustrativa de 1,49% a.m.
+              Os valores são apenas uma simulação e não representam proposta de crédito.
+              As condições finais dependem de análise e das taxas vigentes.
+            </p>
+          </div>
+
+          <div class="btn-row" style="margin-top:22px;">
+            <button class="btn btn--primary btn--block" type="button" data-enviar-whats>
+              <svg viewBox="0 0 24 24" width="19" height="19" fill="currentColor" aria-hidden="true">
+                <path d="M12.04 2C6.58 2 2.13 6.45 2.13 11.91c0 1.75.46 3.46 1.32 4.96L2 22l5.25-1.38a9.9 9.9 0 0 0 4.79 1.22h.01c5.46 0 9.91-4.45 9.91-9.91 0-2.65-1.03-5.14-2.9-7.01A9.82 9.82 0 0 0 12.04 2zm0 18.15h-.01a8.2 8.2 0 0 1-4.19-1.15l-.3-.18-3.12.82.83-3.04-.2-.31a8.2 8.2 0 0 1-1.26-4.38c0-4.54 3.7-8.23 8.25-8.23 2.2 0 4.27.86 5.83 2.41a8.18 8.18 0 0 1 2.41 5.83c0 4.54-3.7 8.23-8.24 8.23zm4.52-6.16c-.25-.12-1.47-.72-1.69-.81-.23-.08-.39-.12-.56.13-.16.25-.64.8-.78.97-.14.16-.29.19-.54.06-.25-.12-1.05-.39-1.99-1.23-.74-.66-1.23-1.47-1.38-1.72-.14-.25-.01-.38.11-.51.11-.11.25-.29.37-.43.12-.14.16-.25.25-.41.08-.16.04-.31-.02-.43-.06-.12-.56-1.34-.76-1.84-.2-.48-.41-.42-.56-.43h-.48c-.16 0-.43.06-.65.31-.23.25-.86.84-.86 2.05s.88 2.38 1 2.54c.12.16 1.73 2.64 4.19 3.7.59.25 1.04.4 1.4.52.59.19 1.12.16 1.54.1.47-.07 1.47-.6 1.67-1.18.21-.58.21-1.08.15-1.18-.06-.1-.23-.16-.48-.29z"/>
+              </svg>
+              Enviar para a Copetro
+            </button>
+          </div>
+          <p class="form-note" data-envio-status role="status" style="margin-top:.8rem;">
+            O botão abre o WhatsApp com a simulação e seus dados já escritos.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Como funciona -->
+<section class="section">
+  <div class="container">
+    <div class="story__grid" style="margin-bottom: clamp(44px, 5vw, 72px);">
+      <div class="story__media" data-reveal>
+        <img src="{{ url_for('static', filename='img/foto-credito.webp') }}"
+             alt="Associados conversando durante um atendimento."
+             loading="lazy" width="800" height="534">
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Passo a passo</span>
+        <h2 style="margin-bottom:1.2rem;">Como contratar seu empréstimo</h2>
+        <p class="lead">
+          Do primeiro cálculo à liberação do valor, são quatro etapas, com atendimento
+          da Copetro em todas elas.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid--4" data-reveal-stagger>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4 19V10m5 9V5m5 14v-7m5 7V8"/>
+          </svg>
+        </div>
+        <h3>1. Simule</h3>
+        <p>Escolha o valor e o prazo que cabem no seu orçamento.</p>
+      </article>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M6 2.8h8l4.2 4.2v14.2H6z"/><path d="M14 2.8V7h4.2"/><path d="M9 13h6M9 16.5h4"/>
+          </svg>
+        </div>
+        <h3>2. Solicite</h3>
+        <p>Envie sua solicitação pela Área do Associado ou fale com nosso atendimento.</p>
+      </article>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="11" cy="11" r="7"/><path d="m16.2 16.2 4.3 4.3"/>
+          </svg>
+        </div>
+        <h3>3. Análise</h3>
+        <p>A Copetro avalia a solicitação e apresenta as condições disponíveis.</p>
+      </article>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M20.5 11.5A8 8 0 1 1 12 3.5"/><path d="M21 4.2 12 13.2l-2.6-2.6"/>
+          </svg>
+        </div>
+        <h3>4. Receba</h3>
+        <p>Com o contrato aprovado, o valor é liberado na sua conta.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Vamos conversar sobre o seu crédito?</h2>
+      <p>Fale com a Copetro e receba uma proposta com as condições do seu perfil.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#contato">Falar com a Copetro</a>
+      <a class="btn btn--outline" href="#simulador">Simular novamente</a>
+    </div>
+  </div>
+</section>
+
+<!-- Dúvidas (ultima secao antes do rodape) -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Dúvidas frequentes</span>
+      <h2>Perguntas sobre empréstimo</h2>
+    </div>
+
+    <div class="accordion" data-reveal>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="emp-1">
+          Quem pode contratar um empréstimo na Copetro?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="emp-1">
+          <p>
+            As linhas de crédito são destinadas aos associados da cooperativa. Se você ainda não é
+            associado, <a href="/fale-conosco#associar">fale conosco</a> para entender como fazer parte.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="emp-2">
+          Os valores da simulação são definitivos?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="emp-2">
+          <p>
+            Não. A simulação é uma estimativa para ajudar no planejamento. As condições finais, taxa, prazo e valor da parcela, dependem da análise da solicitação e das taxas vigentes.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="emp-3">
+          Posso quitar o empréstimo antes do prazo?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="emp-3">
+          <p>
+            Sim. A liquidação antecipada é um direito do associado e prevê o desconto proporcional
+            dos juros. Consulte o atendimento para saber como solicitar.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="emp-4">
+          Quais documentos preciso apresentar?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="emp-4">
+          <p>
+            Em geral, documento de identificação com foto, CPF, comprovante de residência e
+            comprovante de renda. A lista pode variar conforme a modalidade contratada.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

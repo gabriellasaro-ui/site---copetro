@@ -1,0 +1,238 @@
+{% extends "_base.html" %}
+{% set page = 'canal-de-denuncias' %}
+
+{% block title %}Canal de Denúncias de ilicitudes | Copetro{% endblock %}
+{% block description %}Canal da Copetro para denúncia de ilicitudes. A denúncia pode ser feita anonimamente pelo telefone (31) 3889-7155, de 12h30 às 18h30.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Canal de Denúncias", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Integridade</span>
+      <h1>Canal de Denúncias</h1>
+      <p class="lead">
+        Um canal reservado para relatar condutas ilícitas ou contrárias ao Código de Ética da
+        cooperativa. <strong>A denúncia pode ser feita anonimamente.</strong>
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="tel:+553138897155">(31) 3889-7155</a>
+        <a class="btn btn--ghost-light" href="#como-funciona">Como funciona</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Destaque do canal -->
+<section class="section">
+  <div class="container">
+    <h2 class="visually-hidden">Como acionar o canal</h2>
+    <div class="grid grid--3" data-reveal-stagger>
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M4.5 5.5h4l1.6 4-2 1.4a12 12 0 0 0 5 5l1.4-2 4 1.6v4a1.4 1.4 0 0 1-1.6 1.4A16.5 16.5 0 0 1 3.1 7.1 1.4 1.4 0 0 1 4.5 5.5z"/>
+          </svg>
+        </div>
+        <h3>Telefone exclusivo</h3>
+        <p><a href="tel:+553138897155"><strong>(31) 3889-7155</strong></a><br>
+           Linha dedicada ao canal, separada do atendimento geral.</p>
+      </article>
+
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <circle cx="12" cy="12" r="8.6"/><path d="M12 7.2V12l3.2 2"/>
+          </svg>
+        </div>
+        <h3>Horário</h3>
+        <p><strong>12h30 às 18h30</strong><br>
+           De segunda a sexta-feira.</p>
+      </article>
+
+      <article class="card card--plain">
+        <div class="card__icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M1.8 12S5.5 5.2 12 5.2c1.8 0 3.4.5 4.8 1.3M22.2 12s-1.3 2.4-3.7 4.3"/>
+            <path d="M3 3l18 18"/><path d="M9.6 9.8a3.1 3.1 0 0 0 4.3 4.4"/>
+          </svg>
+        </div>
+        <h3>Anonimato garantido</h3>
+        <p>Você não precisa se identificar. Denúncias anônimas são recebidas e apuradas do mesmo jeito.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Como funciona -->
+<section class="section section--cream" id="como-funciona">
+  <div class="container">
+    <div class="split">
+      <div data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2>O que dá para relatar aqui</h2>
+        <p class="lead" style="margin-top:1rem;">
+          O canal existe para situações que envolvem conduta ilícita ou violação do Código de
+          Ética. Não é o lugar para reclamações de atendimento: essas vão para a
+          <a href="/ouvidoria">Ouvidoria</a>.
+        </p>
+
+        <ul class="duty-list" style="margin-top:1.8rem;">
+          <li>Fraude, desvio ou uso indevido de recursos da cooperativa;</li>
+          <li>Conflito de interesse não declarado;</li>
+          <li>Favorecimento na concessão de crédito ou na contratação de fornecedores;</li>
+          <li>Assédio moral ou sexual;</li>
+          <li>Discriminação de qualquer natureza;</li>
+          <li>Descumprimento das políticas internas e do Código de Ética.</li>
+        </ul>
+
+        <div class="btn-row mt-lg">
+          <a class="btn btn--outline"
+             href="{{ url_for('static', filename='docs/MANUALUTILIZACAOCANALDENUNCIAILICITUDESRev02.pdf') }}"
+             target="_blank" rel="noopener">Ler o manual do canal</a>
+        </div>
+      </div>
+
+      <div data-reveal>
+        <div class="duty-card">
+          <div class="duty-card__head">
+            <span>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 2.8 20 6v6c0 5-3.4 8.4-8 9.2-4.6-.8-8-4.2-8-9.2V6z"/><path d="m8.8 12 2.3 2.3 4.4-4.4"/>
+              </svg>
+            </span>
+            <h3>O que ajuda na apuração</h3>
+          </div>
+          <p style="color: var(--muted); margin-bottom:1.2rem;">
+            Quanto mais concreto o relato, melhor a apuração. Se puder, informe:
+          </p>
+          <ul class="duty-list">
+            <li>O que aconteceu, com o máximo de detalhe possível;</li>
+            <li>Quando e onde ocorreu;</li>
+            <li>Quem estava envolvido;</li>
+            <li>Se há documentos, mensagens ou testemunhas.</li>
+          </ul>
+          <p class="form-note" style="margin-top:1.4rem;">
+            Mesmo sem todos esses dados, faça o relato. A cooperativa avalia cada caso recebido.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Compromissos -->
+<section class="section section--green">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Nossos compromissos</span>
+      <h2>O que garantimos a quem denuncia</h2>
+    </div>
+
+    <div class="grid grid--3" data-reveal-stagger>
+      <article class="card card--outline-light">
+        <h3>Sigilo</h3>
+        <p>As informações recebidas são tratadas de forma confidencial, restritas a quem apura o caso.</p>
+      </article>
+      <article class="card card--outline-light">
+        <h3>Não retaliação</h3>
+        <p>Nenhuma represália será tolerada contra quem faz uma denúncia de boa-fé.</p>
+      </article>
+      <article class="card card--outline-light">
+        <h3>Apuração</h3>
+        <p>Todo relato recebido é analisado e encaminhado às instâncias competentes da cooperativa.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Dúvidas: última seção antes do rodapé -->
+<section class="section" id="faq">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Dúvidas</span>
+      <h2>Perguntas frequentes</h2>
+    </div>
+
+    <div class="accordion" data-reveal>
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="den-1">
+          Preciso me identificar?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="den-1">
+          <p>
+            Não. A denúncia pode ser feita anonimamente. Se você optar por se identificar, seus
+            dados são tratados com sigilo e usados apenas na apuração.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="den-2">
+          Qual a diferença entre este canal e a Ouvidoria?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="den-2">
+          <p>
+            A <a href="/ouvidoria">Ouvidoria</a> trata reclamações sobre produtos, serviços e
+            atendimento que não foram resolvidas nos canais habituais. O Canal de Denúncias trata
+            de conduta ilícita ou contrária ao Código de Ética.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="den-3">
+          Posso sofrer retaliação?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="den-3">
+          <p>
+            Não. A cooperativa não admite represália contra quem relata de boa-fé. Retaliação é,
+            ela própria, uma violação do
+            <a href="{{ url_for('static', filename='docs/CODIGOETICARev02.pdf') }}"
+               target="_blank" rel="noopener">Código de Ética</a>.
+          </p>
+        </div>
+      </div>
+
+      <div class="accordion__item">
+        <button class="accordion__trigger" type="button" data-accordion-trigger aria-expanded="false" aria-controls="den-4">
+          Vou saber o resultado da apuração?
+          <span class="accordion__sign" aria-hidden="true">
+            <svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round"><path d="M12 5v14M5 12h14"/></svg>
+          </span>
+        </button>
+        <div class="accordion__panel" id="den-4">
+          <p>
+            Se você se identificar e deixar um contato, a cooperativa poderá retornar. Em
+            denúncias anônimas, o retorno direto não é possível, mas a apuração acontece
+            da mesma forma.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

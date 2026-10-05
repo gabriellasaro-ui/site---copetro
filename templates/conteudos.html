@@ -1,0 +1,146 @@
+{% extends "_base.html" %}
+{% set page = 'conteudos' %}
+
+{% block title %}Notícias e conteúdos sobre crédito e cooperativismo | Copetro{% endblock %}
+{% block description %}Dicas, novidades e informações sobre cooperativismo, crédito, segurança digital e educação financeira publicadas pela Copetro.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Blog",
+  "@id": "{{ canonical_url }}#blog",
+  "name": "Conteúdos Copetro",
+  "inLanguage": "pt-BR",
+  "publisher": { "@id": "{{ site_url }}/#organizacao" },
+  "blogPost": [
+    {% for p in posts %}
+    {
+      "@type": "BlogPosting",
+      "headline": {{ p.titulo|tojson }},
+      "datePublished": "{{ p.data_iso }}",
+      "url": "{{ site_url }}/conteudos/{{ p.slug }}",
+      {% if p.imagem %}"image": "{{ site_url }}{{ media_url(p.imagem) }}",{% endif %}
+      "author": { "@id": "{{ site_url }}/#organizacao" }
+    }{{ "," if not loop.last }}
+    {% endfor %}
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Conteúdos</span>
+      <h1>Notícias e novidades da Copetro.</h1>
+      <p class="lead">Acompanhe as dicas, novidades e informações sobre o setor.</p>
+    </div>
+  </div>
+</section>
+
+{% if posts %}
+{% set destaque = posts[0] %}
+
+<!-- Destaque -->
+<section class="section">
+  <div class="container">
+    <a class="feature-post" href="/conteudos/{{ destaque.slug }}" data-reveal>
+      <div class="feature-post__media">
+        {% if destaque.imagem %}
+        <img src="{{ media_url(destaque.imagem) }}"
+             srcset="{{ media_srcset(destaque.imagem) }}"
+             sizes="(max-width: 56em) 92vw, 600px"
+             alt="" fetchpriority="high" {{ media_dim(destaque.imagem) }}>
+        {% endif %}
+      </div>
+      <div class="feature-post__body">
+        <div class="news-card__meta">
+          <span class="news-card__tag">{{ destaque.categoria }}</span>
+          <time class="news-card__date" datetime="{{ destaque.data_iso }}">{{ destaque.data }}</time>
+        </div>
+        <h2>{{ destaque.titulo }}</h2>
+        {% if destaque.subtitulo %}<p class="feature-post__sub">{{ destaque.subtitulo }}</p>{% endif %}
+        <p>{{ destaque.resumo }}</p>
+        <span class="link-arrow">Ler o conteúdo</span>
+      </div>
+    </a>
+  </div>
+</section>
+
+<!-- Demais conteúdos -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Arquivo</span>
+      <h2>Todos os conteúdos</h2>
+    </div>
+
+    <div class="carrossel" data-carrossel>
+      <div class="carrossel__trilho" data-carrossel-trilho>
+        {% for p in posts[1:] %}
+        <a class="news-card carrossel__item" href="/conteudos/{{ p.slug }}">
+          <div class="news-card__thumb">
+            {% if p.imagem %}
+            <img src="{{ media_url(p.imagem) }}"
+                 srcset="{{ media_srcset(p.imagem) }}"
+                 sizes="(max-width: 47.5em) 84vw, (max-width: 64em) 45vw, 380px"
+                 alt="" loading="lazy" width="880" height="550">
+            {% endif %}
+          </div>
+          <div class="news-card__body">
+            <div class="news-card__meta">
+              <span class="news-card__tag">{{ p.categoria }}</span>
+              <time class="news-card__date" datetime="{{ p.data_iso }}">{{ p.data }}</time>
+            </div>
+            <span class="news-card__title">{{ p.titulo }}</span>
+          </div>
+        </a>
+        {% endfor %}
+      </div>
+
+      <div class="carrossel__controles">
+        <button class="carrossel__seta" type="button" data-carrossel-ant aria-label="Conteúdo anterior">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M15 5l-7 7 7 7"/>
+          </svg>
+        </button>
+        <div class="carrossel__pontos" data-carrossel-pontos role="group" aria-label="Navegar pelos conteúdos"></div>
+        <button class="carrossel__seta" type="button" data-carrossel-prox aria-label="Próximo conteúdo">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M9 5l7 7-7 7"/>
+          </svg>
+        </button>
+      </div>
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<!-- CTA final -->
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Quer saber mais sobre a cooperativa?</h2>
+      <p>Conheça nossa história e entenda como o cooperativismo funciona na prática.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/a-copetro">Conheça a Copetro</a>
+      <a class="btn btn--outline" href="/cooperativismo">Entenda o cooperativismo</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

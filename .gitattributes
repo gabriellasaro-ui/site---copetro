@@ -1,0 +1,4 @@
+# scripts de shell precisam de fim de linha LF, senao o #!/bin/sh quebra no container
+*.sh text eol=lf
+Dockerfile text eol=lf
+*.py text eol=lf

@@ -1,0 +1,73 @@
+{% extends "admin/_base.html" %}
+{% block title %}Conteúdos{% endblock %}
+{% block conteudo %}
+<div class="adm-cab">
+  <div>
+    <h1>Conteúdos</h1>
+    <p class="adm-sub">{{ posts|length }} no total ·
+      {{ posts|selectattr('publicado')|list|length }} publicados ·
+      {{ posts|rejectattr('publicado')|list|length }} em rascunho</p>
+  </div>
+  <a class="btn btn--primary" href="{{ url_for('admin.novo') }}">Novo conteúdo</a>
+</div>
+
+{% if posts %}
+<p class="adm-sub">A ordem desta lista é a ordem no site. Arraste pela alça <span aria-hidden="true">⠿</span> ou use os botões. &ldquo;Primeiro&rdquo; coloca o conteúdo em destaque no início da página.</p>
+<ul class="adm-lista" data-reordenar="{{ url_for('admin.reordenar') }}" data-csrf="{{ csrf_token() }}">
+  {% for p in posts %}
+  <li class="adm-item" data-slug="{{ p.slug }}" draggable="true">
+    <span class="adm-alca" aria-hidden="true" title="Arraste para mudar a ordem">⠿</span>
+    <div class="adm-item__img">
+      {% if p.imagem %}<img src="{{ media_url(p.imagem) }}" alt="" loading="lazy" width="120" height="75">{% endif %}
+    </div>
+    <div class="adm-item__txt">
+      <a class="adm-item__titulo" href="{{ url_for('admin.editar', slug=p.slug) }}">{{ p.titulo }}</a>
+      <p class="adm-item__meta">
+        <span class="adm-selo {{ 'adm-selo--ok' if p.publicado else 'adm-selo--rasc' }}">
+          {{ 'Publicado' if p.publicado else 'Rascunho' }}</span>
+        {{ p.categoria }} · <time datetime="{{ p.data_iso }}">{{ p.data }}</time>
+      </p>
+    </div>
+    <div class="adm-item__acoes">
+      <a class="adm-link" href="{{ url_for('admin.editar', slug=p.slug) }}">Editar</a>
+      {% if p.publicado %}
+      <a class="adm-link" href="/conteudos/{{ p.slug }}" target="_blank" rel="noopener">Ver</a>
+      {% else %}
+      <a class="adm-link" href="{{ url_for('admin.previa', slug=p.slug) }}" target="_blank" rel="noopener">Prévia</a>
+      {% endif %}
+      {% if not loop.first %}
+      <form method="post" action="{{ url_for('admin.mover', slug=p.slug) }}">
+        <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+        <input type="hidden" name="acao" value="primeiro">
+        <button class="adm-link" type="submit">Primeiro</button>
+      </form>
+      <form method="post" action="{{ url_for('admin.mover', slug=p.slug) }}">
+        <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+        <input type="hidden" name="acao" value="subir">
+        <button class="adm-link" type="submit" aria-label="Subir uma posição">↑</button>
+      </form>
+      {% endif %}
+      {% if not loop.last %}
+      <form method="post" action="{{ url_for('admin.mover', slug=p.slug) }}">
+        <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+        <input type="hidden" name="acao" value="descer">
+        <button class="adm-link" type="submit" aria-label="Descer uma posição">↓</button>
+      </form>
+      {% endif %}
+      <form method="post" action="{{ url_for('admin.publicar', slug=p.slug) }}">
+        <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+        <button class="adm-link" type="submit">{{ 'Despublicar' if p.publicado else 'Publicar' }}</button>
+      </form>
+      <form method="post" action="{{ url_for('admin.excluir', slug=p.slug) }}"
+            data-confirm="Excluir &ldquo;{{ p.titulo }}&rdquo;? Essa ação não pode ser desfeita.">
+        <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+        <button class="adm-link adm-link--perigo" type="submit">Excluir</button>
+      </form>
+    </div>
+  </li>
+  {% endfor %}
+</ul>
+{% else %}
+<p class="adm-vazio">Nenhum conteúdo ainda. Comece criando o primeiro.</p>
+{% endif %}
+{% endblock %}

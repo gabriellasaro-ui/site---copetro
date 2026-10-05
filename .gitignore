@@ -1,0 +1,15 @@
+.env
+.env.*
+!.env.example
+.venv/
+venv/
+__pycache__/
+*.pyc
+*.log
+
+# dados editados pelo painel (posts e imagens enviadas): ficam no volume, nao no git
+data/
+
+# gerados no build (scripts/minificar.py)
+static/css/*.min.css
+static/js/*.min.js

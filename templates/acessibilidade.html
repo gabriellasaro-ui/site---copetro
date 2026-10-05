@@ -1,0 +1,128 @@
+{% extends "_base.html" %}
+{% set page = 'acessibilidade' %}
+
+{% block title %}Acessibilidade e Libras no site | Copetro{% endblock %}
+{% block description %}Recursos de acessibilidade do site da Copetro, atalhos de teclado, tradução em Libras e como relatar barreiras encontradas.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Acessibilidade", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Acessibilidade</span>
+      <h1>Um site que funciona para todo mundo.</h1>
+      <p class="lead">
+        Cooperar é incluir. Reunimos aqui os recursos de acessibilidade do site e o canal para
+        você nos avisar quando algo não funcionar.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <aside class="legal-toc" data-reveal aria-label="Índice da página">
+        <p class="legal-toc__title">Nesta página</p>
+        <ul>
+          <li><a href="#compromisso">1. Nosso compromisso</a></li>
+          <li><a href="#recursos">2. Recursos disponíveis</a></li>
+          <li><a href="#libras">3. Tradução em Libras</a></li>
+          <li><a href="#teclado">4. Navegação por teclado</a></li>
+          <li><a href="#limitacoes">5. Limitações conhecidas</a></li>
+          <li><a href="#contato">6. Encontrou uma barreira?</a></li>
+        </ul>
+      </aside>
+
+      <div class="legal" data-reveal>
+        <p class="legal__meta">
+          <strong>Última atualização:</strong> 1 de outubro de 2026.<br>
+          Referência: WCAG 2.1 nível AA e Lei Brasileira de Inclusão, Lei nº 13.146/2015.
+        </p>
+
+        <h2 id="compromisso">1. Nosso compromisso</h2>
+        <p>
+          A Copetro trabalha para que qualquer pessoa consiga usar este site, com ou sem
+          tecnologia assistiva. Tomamos como referência as diretrizes WCAG 2.1 no nível AA e
+          tratamos acessibilidade como parte da construção, não como ajuste posterior.
+        </p>
+
+        <h2 id="recursos">2. Recursos disponíveis</h2>
+        <ul>
+          <li><strong>Estrutura semântica:</strong> títulos em ordem hierárquica, listas e marcos de página que permitem navegar por regiões;</li>
+          <li><strong>Texto alternativo:</strong> todas as imagens de conteúdo têm descrição; imagens decorativas são ignoradas pelo leitor de tela;</li>
+          <li><strong>Contraste:</strong> as combinações de cor do site seguem a relação mínima exigida para texto;</li>
+          <li><strong>Texto redimensionável:</strong> o layout se adapta ao aumentar a fonte no navegador, sem perda de conteúdo;</li>
+          <li><strong>Movimento reduzido:</strong> se o seu sistema estiver configurado para reduzir animações, o site desliga as transições automaticamente;</li>
+          <li><strong>Funciona sem JavaScript:</strong> o conteúdo permanece legível mesmo com scripts desativados;</li>
+          <li><strong>Foco visível:</strong> o elemento em foco é sempre destacado durante a navegação por teclado.</li>
+        </ul>
+
+        <h2 id="libras">3. Tradução em Libras</h2>
+        <p>
+          Este site oferece o <strong>VLibras</strong>, suíte gratuita do Governo Federal que
+          traduz conteúdos digitais para a Língua Brasileira de Sinais. Para usar, clique no
+          ícone azul com as mãos, no canto direito da tela, e selecione o texto que deseja
+          traduzir.
+        </p>
+
+        <h2 id="teclado">4. Navegação por teclado</h2>
+        <p>Todo o site pode ser operado sem mouse.</p>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Atalhos de teclado (tabela, role para o lado se necessário)">        <table>
+          <thead>
+            <tr><th>Tecla</th><th>Ação</th></tr>
+          </thead>
+          <tbody>
+            <tr><td><kbd>Tab</kbd></td><td>Avança para o próximo elemento</td></tr>
+            <tr><td><kbd>Shift</kbd> + <kbd>Tab</kbd></td><td>Volta para o elemento anterior</td></tr>
+            <tr><td><kbd>Enter</kbd> ou <kbd>Espaço</kbd></td><td>Ativa links, botões e acordeões</td></tr>
+            <tr><td><kbd>Esc</kbd></td><td>Fecha o menu e os submenus abertos</td></tr>
+          </tbody>
+        </table></div>
+        <p>
+          O primeiro <kbd>Tab</kbd> em qualquer página revela o atalho
+          <strong>Ir para o conteúdo</strong>, que pula a navegação e leva direto ao texto
+          principal.
+        </p>
+
+        <h2 id="limitacoes">5. Limitações conhecidas</h2>
+        <p>Somos transparentes sobre o que ainda não está resolvido:</p>
+        <ul>
+          <li>Em outubro de 2026 o site passou por verificações automáticas (axe-core e Lighthouse) e por testes de navegação por teclado, sem pendências encontradas. Esse tipo de verificação não substitui o teste com leitores de tela e com pessoas que usam tecnologia assistiva, por isso o seu relato é importante;</li>
+          <li>Os documentos em PDF na página de <a href="/regulamentacoes">Regulamentações</a> foram produzidos originalmente para impressão e podem não estar totalmente acessíveis a leitores de tela. Se precisar de algum deles em formato alternativo, peça pelos nossos canais e enviaremos;</li>
+          <li>O mapa da página <a href="/onde-estamos">Onde estamos</a> é fornecido por terceiros; o endereço completo está sempre disponível em texto ao lado dele;</li>
+          <li>Conteúdos em vídeo publicados no futuro receberão legendas.</li>
+        </ul>
+
+        <h2 id="contato">6. Encontrou uma barreira?</h2>
+        <p>
+          Se alguma parte do site dificultou o seu acesso, queremos saber. Descreva a página e
+          o que aconteceu, e retornaremos com uma solução ou com o conteúdo em formato
+          alternativo.
+        </p>
+        <div class="highlight" style="margin-top:1.4rem;">
+          <p style="margin-bottom:1.2rem;">
+            <strong>E-mail:</strong> <a href="mailto:faleconosco@copetro.org.br">faleconosco@copetro.org.br</a><br>
+            <strong>Telefone:</strong> <a href="tel:+553132014412">(31) 3201-4412</a>
+          </p>
+          <a class="btn btn--primary" href="/fale-conosco#contato">Relatar uma barreira</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

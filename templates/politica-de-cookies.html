@@ -1,0 +1,195 @@
+{% extends "_base.html" %}
+{% set page = 'politica-de-cookies' %}
+
+{% block title %}Política de Cookies | Copetro{% endblock %}
+{% block description %}Quais cookies o site da Copetro utiliza, para que servem, por quanto tempo duram e como gerenciar suas preferências de consentimento.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Política de Cookies", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">LGPD</span>
+      <h1>Política de Cookies</h1>
+      <p class="lead">
+        O que são, quais usamos e como você controla o que aceita.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="#" data-cookie-open>Gerenciar preferências</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <aside class="legal-toc" data-reveal aria-label="Índice da página">
+        <p class="legal-toc__title">Nesta página</p>
+        <ul>
+          <li><a href="#o-que-sao">1. O que são cookies</a></li>
+          <li><a href="#categorias">2. Categorias que usamos</a></li>
+          <li><a href="#tabela">3. Cookies em detalhe</a></li>
+          <li><a href="#terceiros">4. Cookies de terceiros</a></li>
+          <li><a href="#gerenciar">5. Como gerenciar</a></li>
+          <li><a href="#navegador">6. Configurar no navegador</a></li>
+          <li><a href="#alteracoes">7. Alterações</a></li>
+        </ul>
+      </aside>
+
+      <div class="legal" data-reveal>
+        <p class="legal__meta">
+          <strong>Última atualização:</strong> 29 de setembro de 2026.<br>
+          Complementa a <a href="/politica-de-privacidade">Política de Privacidade</a>, conforme a
+          LGPD (Lei nº 13.709/2018) e o Marco Civil da Internet (Lei nº 12.965/2014).
+        </p>
+
+        <h2 id="o-que-sao">1. O que são cookies</h2>
+        <p>
+          Cookies são pequenos arquivos de texto gravados no seu dispositivo quando você visita um
+          site. Eles permitem que o site funcione corretamente, lembre suas escolhas e, dependendo
+          da categoria, ajudem a entender como as páginas são utilizadas.
+        </p>
+        <p>
+          Usamos também tecnologias equivalentes, como o <strong>armazenamento local</strong>
+          (<code>localStorage</code>) do navegador, que segue as mesmas regras desta política.
+        </p>
+
+        <h2 id="categorias">2. Categorias que usamos</h2>
+
+        <h3>Necessários, sempre ativos</h3>
+        <p>
+          Indispensáveis para a navegação, a segurança e o funcionamento básico do site. Sem eles,
+          serviços que você solicitou não podem ser prestados. Por isso, <strong>não dependem de
+          consentimento</strong>.
+        </p>
+
+        <h3>Desempenho, dependem do seu consentimento</h3>
+        <p>
+          Coletam informações agregadas sobre como os visitantes usam o site: páginas mais
+          acessadas, tempo de permanência, erros encontrados. Servem para melhorar a experiência.
+        </p>
+
+        <h3>Marketing, dependem do seu consentimento</h3>
+        <p>
+          Permitem medir o resultado de campanhas e exibir comunicações mais relevantes dentro e
+          fora do site.
+        </p>
+
+        <h2 id="tabela">3. Cookies em detalhe</h2>
+        <div class="table-scroll" tabindex="0" role="region" aria-label="Cookies utilizados (tabela, role para o lado se necessário)">        <table>
+          <thead>
+            <tr>
+              <th>Nome</th>
+              <th>Categoria</th>
+              <th>Finalidade</th>
+              <th>Duração</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><code>copetro:consentimento</code></td>
+              <td>Necessário</td>
+              <td>Guarda as suas escolhas de cookies para não perguntar de novo a cada visita. Armazenado em <code>localStorage</code>.</td>
+              <td>Até você limpar os dados do navegador</td>
+            </tr>
+            <tr>
+              <td><code>session</code></td>
+              <td>Necessário</td>
+              <td>Mantém o estado da sua navegação durante a visita.</td>
+              <td>Sessão</td>
+            </tr>
+          </tbody>
+        </table></div>
+        <p>
+          <em>
+            Esta tabela reflete o site no momento da publicação. Ao ativar ferramentas de análise
+            ou campanhas, os cookies correspondentes devem ser acrescentados aqui antes de entrarem
+            em operação.
+          </em>
+        </p>
+
+        <h2 id="terceiros">4. Serviços de terceiros</h2>
+        <p>
+          As fontes tipográficas deste site são servidas pelo próprio domínio da Copetro: nenhuma
+          fonte é carregada de empresas externas.
+        </p>
+        <p>
+          Dois recursos funcionam com serviços de terceiros e, ao serem usados, podem registrar o
+          seu endereço IP e dados do navegador, sob as políticas de cada um:
+        </p>
+        <ul>
+          <li><strong>VLibras</strong>, tradutor para a Língua Brasileira de Sinais mantido pelo Governo Federal, carregado nas páginas do site;</li>
+          <li><strong>OpenStreetMap</strong>, que exibe o mapa nas páginas Fale Conosco e Onde estamos.</li>
+        </ul>
+        <p>
+          Publicações ou conteúdos incorporados de outras plataformas, se houver, também podem
+          gravar cookies próprios.
+        </p>
+
+        <h2 id="gerenciar">5. Como gerenciar suas preferências</h2>
+        <p>
+          Na sua primeira visita, exibimos um aviso para que você escolha o que aceitar. Você pode
+          rever essa decisão quando quiser:
+        </p>
+        <div class="btn-row" style="margin: 1.2rem 0 1.6rem;">
+          <a class="btn btn--primary" href="#" data-cookie-open>Abrir preferências de cookies</a>
+        </div>
+        <p>
+          O mesmo link está disponível no rodapé de todas as páginas. Recusar os cookies opcionais
+          não impede o uso do site, apenas limita a nossa capacidade de medir e melhorar a
+          experiência.
+        </p>
+
+        <h2 id="navegador">6. Configurar no navegador</h2>
+        <p>
+          Você também pode bloquear ou apagar cookies diretamente no navegador. O caminho varia
+          conforme o programa:
+        </p>
+        <ul>
+          <li><strong>Chrome:</strong> Configurações → Privacidade e segurança → Cookies;</li>
+          <li><strong>Firefox:</strong> Configurações → Privacidade e Segurança;</li>
+          <li><strong>Safari:</strong> Preferências → Privacidade;</li>
+          <li><strong>Edge:</strong> Configurações → Cookies e permissões do site.</li>
+        </ul>
+        <p>
+          Bloquear todos os cookies pode afetar o funcionamento deste e de outros sites.
+        </p>
+
+        <h2 id="alteracoes">7. Alterações nesta política</h2>
+        <p>
+          Sempre que passarmos a usar novos cookies, esta página será atualizada e, se necessário,
+          pediremos novamente o seu consentimento. A data da última atualização está no topo.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner">
+    <div>
+      <h2>Quer saber como tratamos seus dados?</h2>
+      <p>A Política de Privacidade detalha finalidades, bases legais e os seus direitos.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/politica-de-privacidade">Política de Privacidade</a>
+      <a class="btn btn--outline" href="/fale-conosco#contato">Falar com a Copetro</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

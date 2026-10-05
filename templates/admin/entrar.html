@@ -1,0 +1,20 @@
+{% extends "admin/_base.html" %}
+{% block title %}Entrar{% endblock %}
+{% block conteudo %}
+<section class="adm-login">
+  <h1>Entrar no painel</h1>
+  <p class="adm-sub">Acesso restrito à equipe de comunicação da Copetro.</p>
+
+  {% if erro %}<p class="adm-aviso adm-aviso--erro" role="alert">{{ erro }}</p>{% endif %}
+
+  <form method="post" class="adm-card">
+    <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+    <div class="form-field">
+      <label for="senha">Senha</label>
+      <input type="password" id="senha" name="senha" autocomplete="current-password" required autofocus>
+    </div>
+    <button class="btn btn--primary btn--block" type="submit">Entrar</button>
+  </form>
+  <p class="adm-sub"><a href="/">Voltar ao site</a></p>
+</section>
+{% endblock %}

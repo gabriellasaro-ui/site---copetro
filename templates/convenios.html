@@ -1,0 +1,129 @@
+{% extends "_base.html" %}
+{% set page = 'convenios' %}
+
+{% block title %}Convênios e descontos para associados | Copetro{% endblock %}
+{% block description %}Rede de parceiros da Copetro com vantagens e descontos exclusivos para associados em saúde, educação, seguros e serviços.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Convênios", "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Convênios</span>
+      <h1>Vantagens para quem faz parte.</h1>
+      <p class="lead">
+        Associados têm descontos e condições exclusivas em estabelecimentos credenciados
+        pela Copetro.
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="section">
+  <div class="container">
+    <div class="story__grid story__grid--reverse" style="margin-bottom: clamp(44px, 5vw, 72px);">
+      <div class="story__media" data-reveal>
+        <img src="{{ url_for('static', filename='img/foto-convenios.webp') }}"
+             alt="Aperto de mãos entre duas pessoas, representando uma parceria."
+             loading="lazy" width="800" height="534">
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Como funciona</span>
+        <h2 style="margin-bottom:1.2rem;">{{ total }} parceiros à sua disposição</h2>
+        <p class="lead">
+          Para usar o benefício, basta se identificar como associado da Copetro no momento do
+          atendimento. Cada parceiro define a vantagem que oferece.
+        </p>
+        <p class="lead">
+          A rede é atualizada periodicamente. Se o parceiro que você procura não estiver aqui,
+          fale com o nosso atendimento.
+        </p>
+        <div class="btn-row mt-lg">
+          <a class="btn btn--primary" href="/fale-conosco#contato">Falar com a Copetro</a>
+        </div>
+      </div>
+    </div>
+
+    {% for g in grupos %}
+    <div class="doc-group" data-reveal>
+      <h3 class="doc-group__title">{{ g.grupo }}</h3>
+      <div class="grid grid--2" style="margin-top:18px;">
+        {% for p in g.parceiros %}
+        <article class="parceiro">
+          <div class="parceiro__topo">
+            <h4>{{ p.nome }}</h4>
+            {% if p.beneficio %}<span class="parceiro__selo">{{ p.beneficio }}</span>{% endif %}
+          </div>
+          {% if p.servico %}<p class="parceiro__servico">{{ p.servico }}</p>{% endif %}
+
+          <ul class="parceiro__dados">
+            {% if p.endereco %}
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 21.5s7-5.6 7-11a7 7 0 1 0-14 0c0 5.4 7 11 7 11z"/><circle cx="12" cy="10.2" r="2.7"/>
+              </svg>
+              <span>{{ p.endereco }}</span>
+            </li>
+            {% endif %}
+            {% if p.telefones %}
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M4.5 5.5h4l1.6 4-2 1.4a12 12 0 0 0 5 5l1.4-2 4 1.6v4a1.4 1.4 0 0 1-1.6 1.4A16.5 16.5 0 0 1 3.1 7.1 1.4 1.4 0 0 1 4.5 5.5z"/>
+              </svg>
+              <span>
+                {%- for t in p.telefones -%}
+                <a href="tel:+55{{ t | replace('(','') | replace(')','') | replace(' ','') | replace('-','') }}">{{ t }}</a>{{ " · " if not loop.last }}
+                {%- endfor -%}
+              </span>
+            </li>
+            {% endif %}
+            {% if p.site %}
+            <li>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="8.6"/><path d="M3.4 12h17.2"/>
+                <path d="M12 3.4c2.1 2.3 3.3 5.4 3.3 8.6S14.1 18.3 12 20.6c-2.1-2.3-3.3-5.4-3.3-8.6S9.9 5.7 12 3.4z"/>
+              </svg>
+              <span><a href="{{ p.site }}" target="_blank" rel="noopener">{{ p.site_rotulo }}</a></span>
+            </li>
+            {% endif %}
+          </ul>
+        </article>
+        {% endfor %}
+      </div>
+    </div>
+    {% endfor %}
+
+    <p class="form-note" data-reveal style="margin-top:1.4rem;">
+      Condições e descontos são definidos por cada parceiro e podem mudar sem aviso.
+      Confirme a vantagem no momento do atendimento.
+    </p>
+  </div>
+</section>
+
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Quer indicar um parceiro?</h2>
+      <p>Se você conhece um estabelecimento que faria sentido na nossa rede, nos avise.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#contato">Indicar um parceiro</a>
+      <a class="btn btn--outline" href="/fale-conosco#associar">Quero ser associado</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

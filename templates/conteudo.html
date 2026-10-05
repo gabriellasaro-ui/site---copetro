@@ -1,0 +1,136 @@
+{% extends "_base.html" %}
+{% set page = 'conteudos' %}
+
+{% block title %}{{ (post.titulo ~ ' | Copetro') if post.titulo|length <= 50 else post.titulo }}{% endblock %}
+{% block description %}{{ ((post.subtitulo ~ '. ' ~ post.resumo) if post.subtitulo and post.resumo|length < 90 else post.resumo)|truncar(155) }}{% endblock %}
+{% block og_type %}article{% endblock %}
+{% block og_imagem %}{% if post.imagem %}{{ site_url }}{{ media_url(post.imagem) }}{% else %}{{ site_url }}{{ url_for('static', filename='img/og-image.png') }}{% endif %}{% endblock %}
+{% block og_dimensoes %}{% endblock %}
+{% block meta_extra %}
+  <meta property="article:published_time" content="{{ post.data_iso }}">
+  <meta property="article:section" content="{{ post.categoria }}">
+  <meta property="article:author" content="Copetro">
+{% endblock %}
+{% block robots %}{% if previa %}noindex, nofollow{% elif not post.publicado %}noindex, nofollow{% else %}index, follow, max-image-preview:large, max-snippet:-1{% endif %}{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    { "@type": "ListItem", "position": 1, "name": "Início", "item": "{{ site_url }}/" },
+    { "@type": "ListItem", "position": 2, "name": "Conteúdos", "item": "{{ site_url }}/conteudos" },
+    { "@type": "ListItem", "position": 3, "name": {{ post.titulo|tojson }}, "item": "{{ canonical_url }}" }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "@id": "{{ canonical_url }}#artigo",
+  "headline": {{ post.titulo|tojson }},
+  "description": {{ post.resumo|truncar(155)|tojson }},
+  "articleSection": {{ post.categoria|tojson }},
+  "datePublished": "{{ post.data_iso }}",
+  "dateModified": "{{ post.data_iso }}",
+  "inLanguage": "pt-BR",
+  "mainEntityOfPage": "{{ canonical_url }}",
+  {% if post.imagem %}"image": "{{ site_url }}{{ media_url(post.imagem) }}",{% endif %}
+  "author": { "@id": "{{ site_url }}/#organizacao" },
+  "publisher": { "@id": "{{ site_url }}/#organizacao" }
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<article class="section article">
+  <div class="container">
+
+    <nav class="breadcrumb" aria-label="Você está aqui">
+      <a href="/">Início</a>
+      <span aria-hidden="true">/</span>
+      <a href="/conteudos">Conteúdos</a>
+      <span aria-hidden="true">/</span>
+      <span>{{ post.categoria }}</span>
+    </nav>
+
+    <header class="article__head">
+      <div class="news-card__meta">
+        <span class="news-card__tag">{{ post.categoria }}</span>
+        <time class="news-card__date" datetime="{{ post.data_iso }}">{{ post.data }}</time>
+      </div>
+      <h1>{{ post.titulo }}</h1>
+      {% if post.subtitulo %}<p class="article__sub">{{ post.subtitulo }}</p>{% endif %}
+    </header>
+
+    {% if post.imagem %}
+    <figure class="article__figure">
+      <img src="{{ media_url(post.imagem) }}"
+           srcset="{{ media_srcset(post.imagem) }}"
+           sizes="(max-width: 52em) 92vw, 820px"
+           alt="" fetchpriority="high" {{ media_dim(post.imagem) }}>
+    </figure>
+    {% endif %}
+
+    <div class="article__body">
+      {% for p in post.paragrafos %}
+      <p>{{ p }}</p>
+      {% endfor %}
+    </div>
+
+    <footer class="article__foot">
+      <a class="link-arrow" href="/conteudos">Ver todos os conteúdos</a>
+    </footer>
+  </div>
+</article>
+
+{% if outros %}
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Continue lendo</span>
+      <h2>Outros conteúdos</h2>
+    </div>
+
+    <div class="grid grid--3" data-reveal-stagger>
+      {% for p in outros %}
+      <a class="news-card" href="/conteudos/{{ p.slug }}">
+        <div class="news-card__thumb">
+          {% if p.imagem %}
+          <img src="{{ media_url(p.imagem) }}"
+               srcset="{{ media_srcset(p.imagem) }}"
+               sizes="(max-width: 47.5em) 92vw, (max-width: 64em) 45vw, 380px"
+               alt="" loading="lazy" width="880" height="550">
+          {% endif %}
+        </div>
+        <div class="news-card__body">
+          <div class="news-card__meta">
+            <span class="news-card__tag">{{ p.categoria }}</span>
+            <time class="news-card__date" datetime="{{ p.data_iso }}">{{ p.data }}</time>
+          </div>
+          <span class="news-card__title">{{ p.titulo }}</span>
+        </div>
+      </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+{% endif %}
+
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Quer fazer parte da Copetro?</h2>
+      <p>Entenda como se associar e acessar as soluções de crédito da cooperativa.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#associar">Quero ser associado</a>
+      <a class="btn btn--outline" href="/emprestimo#simulador">Simule seu empréstimo</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

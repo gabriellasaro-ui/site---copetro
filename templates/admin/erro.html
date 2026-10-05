@@ -1,0 +1,9 @@
+{% extends "admin/_base.html" %}
+{% block title %}Erro{% endblock %}
+{% block conteudo %}
+<section class="adm-login">
+  <h1>Algo deu errado</h1>
+  <p class="adm-aviso adm-aviso--erro" role="alert">{{ mensagem }}</p>
+  <p class="adm-sub"><a href="{{ url_for('admin.lista') }}">Voltar ao painel</a></p>
+</section>
+{% endblock %}

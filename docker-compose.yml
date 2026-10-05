@@ -1,0 +1,26 @@
+# Uso local: docker compose up --build   ->   http://localhost:6000
+# No EasyPanel nao e necessario: ele constroi pelo Dockerfile e voce cadastra as
+# variaveis e o volume pela interface (veja o README, secao "Deploy no EasyPanel").
+services:
+  site:
+    build: .
+    image: copetro-site:latest
+    container_name: copetro-site
+    restart: unless-stopped
+    ports:
+      - "6000:6000"
+    environment:
+      # em http local o cookie Secure nao funciona; em producao deixe 1
+      COOKIE_SECURE: ${COOKIE_SECURE:-0}
+      SITE_URL: ${SITE_URL:-http://localhost:6000}
+      ADMIN_PASSWORD: ${ADMIN_PASSWORD:-}
+      ADMIN_PASSWORD_HASH: ${ADMIN_PASSWORD_HASH:-}
+      SECRET_KEY: ${SECRET_KEY:-}
+      WHATSAPP_NUMERO: ${WHATSAPP_NUMERO:-553132014412}
+      CSP_MODE: ${CSP_MODE:-enforce}
+    volumes:
+      # posts e imagens enviadas pelo painel sobrevivem a rebuild e redeploy
+      - copetro-data:/data
+
+volumes:
+  copetro-data:

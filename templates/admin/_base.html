@@ -1,0 +1,47 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex, nofollow">
+  <title>{% block title %}Painel{% endblock %} | Copetro</title>
+  <link rel="icon" href="{{ url_for('static', filename='img/logo-mark.png') }}" type="image/png">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ url_for('static', filename='fonts/inter-latin.woff2') }}">
+  <link rel="preload" as="font" type="font/woff2" crossorigin
+        href="{{ url_for('static', filename='fonts/poppins-700-latin.woff2') }}">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
+  <link rel="stylesheet" href="{{ asset('css/admin.css') }}">
+</head>
+<body class="adm">
+  <header class="adm-topo">
+    <div class="adm-wrap adm-topo__in">
+      <a class="adm-marca" href="{{ url_for('admin.lista') if session.get('admin') else '/' }}">
+        <img src="{{ url_for('static', filename='img/logo-full-light.png') }}" alt="Copetro" width="621" height="207">
+        <span>Painel de conteúdos</span>
+      </a>
+      {% if session.get('admin') %}
+      <nav class="adm-nav" aria-label="Painel">
+        <a href="{{ url_for('admin.lista') }}">Conteúdos</a>
+        <a href="/conteudos" target="_blank" rel="noopener">Ver no site</a>
+        <form method="post" action="{{ url_for('admin.sair') }}">
+          <input type="hidden" name="csrf" value="{{ csrf_token() }}">
+          <button class="adm-sair" type="submit">Sair</button>
+        </form>
+      </nav>
+      {% endif %}
+    </div>
+  </header>
+
+  <main class="adm-wrap adm-main" id="conteudo">
+    {% with msgs = get_flashed_messages(with_categories=true) %}
+      {% for cat, msg in msgs %}
+      <p class="adm-aviso adm-aviso--{{ cat }}" role="status">{{ msg }}</p>
+      {% endfor %}
+    {% endwith %}
+    {% block conteudo %}{% endblock %}
+  </main>
+
+  <script src="{{ asset('js/admin.js') }}" defer></script>
+</body>
+</html>

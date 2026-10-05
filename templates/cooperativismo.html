@@ -1,0 +1,383 @@
+{% extends "_base.html" %}
+{% set page = 'cooperativismo' %}
+
+{% block title %}O que é cooperativismo de crédito | Copetro{% endblock %}
+{% block description %}O cooperativismo une pessoas em torno de objetivos comuns, criando uma forma de organização baseada na participação, na colaboração e na responsabilidade coletiva.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "{{ site_url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Cooperativismo",
+      "item": "{{ canonical_url }}"
+    }
+  ]
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "DefinedTermSet",
+  "name": "Conceitos do cooperativismo",
+  "hasDefinedTerm": [
+    {
+      "@type": "DefinedTerm",
+      "name": "Cooperativismo",
+      "description": "Forma de organização baseada na união de pessoas que compartilham objetivos e interesses comuns. Em uma cooperativa, os associados participam da construção da organização e contribuem para seu desenvolvimento, com base em princípios como ajuda mútua, participação, responsabilidade e solidariedade."
+    },
+    {
+      "@type": "DefinedTerm",
+      "name": "Cooperativismo de crédito",
+      "description": "Modelo baseado na união de pessoas que participam de uma instituição criada para oferecer serviços financeiros aos seus associados. Quem usa os serviços também é dono da cooperativa."
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<!-- Hero -->
+<section class="hero hero--center">
+  <div class="container">
+    <div class="hero__inner">
+      <span class="hero__kicker">Cooperativismo</span>
+      <h1>Cooperar é construir juntos.</h1>
+      <p class="lead">
+        O cooperativismo une pessoas em torno de objetivos comuns, criando uma forma de organização
+        baseada na participação, na colaboração e na responsabilidade coletiva.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="#o-que-e">Entenda o cooperativismo</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Afinal, o que é cooperativismo -->
+<section class="section" id="o-que-e">
+  <div class="container">
+    <div class="story__grid story__grid--reverse">
+      <div class="story__media" data-reveal>
+        <img src="{{ url_for('static', filename='img/foto-conselho.webp') }}"
+             alt="Cooperados reunidos em torno da mesa durante uma assembleia."
+             loading="lazy" width="800" height="534">
+      </div>
+      <div class="prose" data-reveal>
+        <span class="eyebrow">O conceito</span>
+        <h2 style="margin-bottom:1.2rem;">Afinal, o que é cooperativismo?</h2>
+        <p class="lead">
+          O cooperativismo é uma forma de organização baseada na união de pessoas que compartilham
+          objetivos e interesses comuns.
+        </p>
+        <p class="lead">
+          Em uma cooperativa, os associados participam da construção da organização e contribuem
+          para seu desenvolvimento, com base em princípios como
+          <strong>ajuda mútua, participação, responsabilidade e solidariedade</strong>.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- Cooperativismo de crédito -->
+<section class="section section--green">
+  <div class="container">
+    <div class="section-head section-head--center" data-reveal>
+      <span class="eyebrow">Crédito mútuo</span>
+      <h2>Cooperativismo de crédito</h2>
+    </div>
+    <div class="prose text-center" data-reveal style="margin-inline:auto;">
+      <p class="lead">
+        O cooperativismo de crédito é baseado na união de pessoas que participam de uma instituição
+        criada para oferecer serviços financeiros aos seus associados.
+      </p>
+      <p class="lead">
+        Na Copetro, esse modelo está diretamente relacionado à nossa forma de trabalhar:
+        <strong style="color:#fff;">os associados fazem parte da cooperativa e são parte importante da sua construção.</strong>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- História -->
+<section class="section section--cream" id="historia">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">História</span>
+      <h2>De onde vem o cooperativismo</h2>
+      <p>
+        Cooperar é uma constante do ser humano. O que mudou, na era moderna, foi a organização
+        disso em uma forma jurídica própria. Robert Owen, Louis Blanc e Charles Fourier são
+        apontados como precursores do movimento, defendendo ajuda mútua, igualdade,
+        associativismo e autogestão.
+      </p>
+    </div>
+
+    <ol class="roadmap" data-reveal-stagger>
+        <li class="roadmap__item">
+          <div class="roadmap__marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 20V9l5-3v3l5-3v14"/><path d="M14 11h6v9"/><path d="M2 20h20"/><path d="M17 15v2M8 15v2"/>
+            </svg>
+          </div>
+          <div class="roadmap__card">
+            <span class="roadmap__ano">1760 <small>a 1850</small></span>
+            <h3>Revolução Industrial</h3>
+            <p>A primeira fase da industrialização concentra renda e precariza o trabalho. Trabalhadores começam a se organizar em sociedades de ajuda mútua.</p>
+          </div>
+        </li>
+        <li class="roadmap__item">
+          <div class="roadmap__marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="8.6"/><path d="M12 7.2v5l3.2 2"/>
+            </svg>
+          </div>
+          <div class="roadmap__card">
+            <span class="roadmap__ano">1844</span>
+            <h3>Os Probos Pioneiros</h3>
+            <p>Em Rochdale, na Inglaterra, 28 tecelões fundam a primeira cooperativa moderna. Dela vêm os princípios que orientam o movimento até hoje.</p>
+          </div>
+        </li>
+        <li class="roadmap__item">
+          <div class="roadmap__marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="2.5" y="6" width="19" height="12.5" rx="2.5"/><path d="M2.5 10.5h19"/><path d="M6 15h4"/>
+            </svg>
+          </div>
+          <div class="roadmap__card">
+            <span class="roadmap__ano">Século <small>XX</small></span>
+            <h3>Chega ao crédito</h3>
+            <p>O modelo alcança as finanças: pessoas se unem para criar instituições em que quem usa os serviços também é dono.</p>
+          </div>
+        </li>
+        <li class="roadmap__item">
+          <div class="roadmap__marker" aria-hidden="true">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M9 5 14 19H4Z"/><rect x="7.6" y="18" width="2.8" height="4" rx="1"/><path d="M18 9l4 10h-8Z"/><rect x="16.6" y="18" width="2.8" height="4" rx="1"/>
+            </svg>
+          </div>
+          <div class="roadmap__card">
+            <span class="roadmap__ano">1970</span>
+            <h3>Nasce a Copetro</h3>
+            <p>Petroleiros em Minas Gerais se unem em torno de um propósito comum: cooperar para construir oportunidades.</p>
+          </div>
+        </li>
+    </ol>
+  </div>
+</section>
+
+<!-- Os 7 princípios -->
+<section class="section">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Fundamentos</span>
+      <h2>Os 7 princípios do cooperativismo</h2>
+      <p>
+        Princípios que orientam a prática cooperativista e ajudam a construir relações baseadas na
+        participação, responsabilidade e cooperação.
+      </p>
+    </div>
+
+    <div class="bento" data-reveal-stagger>
+      <article class="card principle">
+        <span class="principle__num">1</span>
+        <h3>Adesão voluntária e livre</h3>
+        <p>Participação aberta e voluntária, sem discriminação.</p>
+      </article>
+      <article class="card principle">
+        <span class="principle__num">2</span>
+        <h3>Gestão democrática</h3>
+        <p>Os cooperados participam das decisões e da definição dos objetivos da cooperativa.</p>
+      </article>
+      <article class="card principle">
+        <span class="principle__num">3</span>
+        <h3>Participação econômica</h3>
+        <p>Os membros contribuem para a formação do capital e participam da organização de forma democrática.</p>
+      </article>
+      <article class="card principle">
+        <span class="principle__num">4</span>
+        <h3>Autonomia e independência</h3>
+        <p>A cooperativa é controlada por seus associados.</p>
+      </article>
+      <article class="card principle">
+        <span class="principle__num">5</span>
+        <h3>Educação, formação e informação</h3>
+        <p>A educação cooperativista fortalece os associados e amplia o conhecimento sobre a cooperação.</p>
+      </article>
+      <article class="card principle">
+        <span class="principle__num">6</span>
+        <h3>Intercooperação</h3>
+        <p>Cooperativas fortalecem o movimento cooperativista quando trabalham juntas.</p>
+      </article>
+      <article class="card principle">
+        <span class="principle__num">7</span>
+        <h3>Interesse pela comunidade</h3>
+        <p>A cooperação também contribui para o desenvolvimento e o bem-estar das comunidades.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Os símbolos -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="section-head" data-reveal>
+      <span class="eyebrow">Identidade</span>
+      <h2>Os símbolos do cooperativismo</h2>
+      <p>Cada elemento conta uma parte da nossa história.</p>
+    </div>
+
+    <div class="symbols" data-reveal-stagger>
+      <article class="symbol">
+        <div class="symbol__art">
+          <img src="{{ url_for('static', filename='img/simbolo-pinheiros.png') }}"
+               alt="" width="52" height="52">
+        </div>
+        <h3>Os pinheiros</h3>
+        <p>Força, resistência e capacidade de expansão.</p>
+      </article>
+
+      <article class="symbol">
+        <div class="symbol__art">
+          <svg viewBox="0 0 64 64" fill="none" aria-hidden="true">
+            <circle cx="32" cy="32" r="23" stroke="#009a44" stroke-width="7"/>
+          </svg>
+        </div>
+        <h3>O círculo</h3>
+        <p>A ideia de eternidade e o movimento permanente e dinâmico da vida.</p>
+      </article>
+
+      <article class="symbol">
+        <div class="symbol__art">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="24" fill="#056f33"/>
+            <path d="M32 18c7 6 10 12 10 18s-3 12-10 18c-7-6-10-12-10-18s3-12 10-18z" fill="#8cd94c"/>
+          </svg>
+        </div>
+        <h3>O verde</h3>
+        <p>A importância da natureza e o equilíbrio com o meio ambiente.</p>
+      </article>
+
+      <article class="symbol">
+        <div class="symbol__art">
+          <svg viewBox="0 0 64 64" aria-hidden="true">
+            <circle cx="32" cy="32" r="14" fill="#f5e400"/>
+            <g stroke="#f5e400" stroke-width="5" stroke-linecap="round">
+              <path d="M32 4v7M32 53v7M4 32h7M53 32h7M12 12l5 5M47 47l5 5M52 12l-5 5M17 47l-5 5"/>
+            </g>
+          </svg>
+        </div>
+        <h3>O amarelo</h3>
+        <p>Associado ao sol, à energia, ao calor e à vida.</p>
+      </article>
+
+      <article class="symbol">
+        <div class="symbol__art">
+          <img src="{{ url_for('static', filename='img/logo-mark.png') }}" alt="" width="52" height="52">
+        </div>
+        <h3>O conjunto</h3>
+        <p>União, movimento, permanência e crescimento.</p>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Direitos e deveres -->
+<section class="section section--cream">
+  <div class="container">
+    <div class="story__grid" style="margin-bottom: clamp(44px, 5vw, 72px);">
+      <div class="story__media" data-reveal>
+        <img src="{{ url_for('static', filename='img/foto-participacao.webp') }}"
+             alt="Grupo diverso de pessoas lado a lado, sorrindo."
+             loading="lazy" width="800" height="534">
+      </div>
+      <div data-reveal>
+        <span class="eyebrow">Participação</span>
+        <h2 style="margin-bottom:1.2rem;">Ser associado também é participar</h2>
+        <p class="lead">
+          Numa cooperativa, quem usa os serviços também decide os rumos. Isso vem com
+          direitos garantidos, e com deveres que sustentam o grupo.
+        </p>
+      </div>
+    </div>
+
+    <div class="grid grid--2" data-reveal-stagger>
+      <article class="duty-card">
+        <div class="duty-card__head">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M12 2.8 20 6v6c0 5-3.4 8.4-8 9.2-4.6-.8-8-4.2-8-9.2V6z"/><path d="m8.8 12 2.3 2.3 4.4-4.4"/>
+            </svg>
+          </span>
+          <h3>Seus direitos</h3>
+        </div>
+        <ul class="duty-list">
+            <li>Usufruir dos produtos e serviços;</li>
+            <li>Receber retorno das sobras apuradas no final do exercício social;</li>
+            <li>Examinar livros e documentos;</li>
+            <li>Solicitar esclarecimentos aos diretores e conselheiros;</li>
+            <li>Convocar assembleias, quando cabível;</li>
+            <li>Propor medidas de interesse da cooperativa;</li>
+            <li>Votar e ser votado para cargos nos Conselhos de Administração e Fiscal.</li>
+        </ul>
+      </article>
+
+      <article class="duty-card duty-card--deveres">
+        <div class="duty-card__head">
+          <span>
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+              <path d="M6 2.8h8l4.2 4.2v14.2H6z"/><path d="M14 2.8V7h4.2"/><path d="M9.4 13.6l1.8 1.8 3.4-3.4"/>
+            </svg>
+          </span>
+          <h3>Seus deveres</h3>
+        </div>
+        <ul class="duty-list">
+            <li>Operar com a cooperativa;</li>
+            <li>Pagar suas quotas-partes em dia;</li>
+            <li>Cumprir seus compromissos;</li>
+            <li>Comparecer às Assembleias Gerais;</li>
+            <li>Votar nas eleições da cooperativa;</li>
+            <li>Acatar as decisões da maioria;</li>
+            <li>Fiscalizar a administração;</li>
+            <li>Zelar pela boa imagem da cooperativa.</li>
+        </ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- Fechamento -->
+<section class="photo-band">
+  <div class="photo-band__bg">
+    <img src="{{ url_for('static', filename='img/foto-comunidade.webp') }}"
+         alt="" loading="lazy" width="800" height="534">
+  </div>
+  <div class="container">
+    <div class="photo-band__inner" data-reveal>
+      <span class="eyebrow">Faça parte</span>
+      <h2>Cooperar faz parte da nossa história.</h2>
+      <p class="lead">
+        E continua fazendo parte do nosso futuro. Na Copetro, acreditamos que a força de uma
+        cooperativa está nas pessoas que fazem parte dela.
+      </p>
+      <div class="btn-row">
+        <a class="btn btn--light" href="/fale-conosco#associar">Quero ser associado</a>
+        <a class="btn btn--ghost-light" href="/emprestimo">Ver empréstimos</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

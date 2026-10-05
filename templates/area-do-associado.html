@@ -1,0 +1,124 @@
+{% extends "_base.html" %}
+{% set page = 'area-do-associado' %}
+
+{% block title %}Área do Associado | Copetro{% endblock %}
+{% block description %}Acesse seus dados, serviços e informações de forma rápida e prática na Área do Associado da Copetro.{% endblock %}
+
+{% block schema %}
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Início",
+      "item": "{{ site_url }}/"
+    },
+    {
+      "@type": "ListItem",
+      "position": 2,
+      "name": "Área do Associado",
+      "item": "{{ canonical_url }}"
+    }
+  ]
+}
+</script>
+{% endblock %}
+
+{% block content %}
+
+<section class="section">
+  <div class="container">
+    <div class="split">
+      <div>
+        <span class="eyebrow">Área do Associado</span>
+        <h1 style="font-size: clamp(1.7rem, 1.15rem + 2.1vw, 2.6rem);">Acesse seus dados, serviços e informações.</h1>
+        <p class="lead" style="margin-top:1rem;">
+          De forma rápida e prática, no computador ou no celular.
+        </p>
+
+        <h2 class="visually-hidden">Vantagens da Área do Associado</h2>
+        <ul class="feature-list" data-reveal-stagger style="margin-top:2rem;">
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M13 2.5 4.5 13.5H11l-.8 8L19 10.5h-6.4z"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Mais praticidade</h3>
+              <p>Tudo o que você precisa, de forma simples e rápida.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="8" r="3.6"/><path d="M4.5 20c.7-3.8 3.8-6 7.5-6s6.8 2.2 7.5 6"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Mais autonomia</h3>
+              <p>Você no controle, onde estiver.</p>
+            </div>
+          </li>
+          <li>
+            <span class="feature-list__icon">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.9" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <path d="M12 20.5s-7.5-4.6-7.5-9.7A4.3 4.3 0 0 1 12 8a4.3 4.3 0 0 1 7.5 2.8c0 5.1-7.5 9.7-7.5 9.7z"/>
+              </svg>
+            </span>
+            <div>
+              <h3>Mais perto de você</h3>
+              <p>A Copetro sempre com você.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="simulator" data-reveal>
+        <h3 style="margin-bottom:.4rem;">Entrar</h3>
+        <p class="form-note" style="margin-bottom:1.6rem;">
+          Use as credenciais recebidas no seu cadastro de associado.
+        </p>
+
+        <form class="form-grid" data-form-pending novalidate>
+          <div class="form-field form-field--full">
+            <label for="cpf">CPF</label>
+            <input type="text" id="cpf" name="cpf" inputmode="numeric" autocomplete="username" placeholder="000.000.000-00" required>
+          </div>
+          <div class="form-field form-field--full">
+            <label for="senha">Senha</label>
+            <input type="password" id="senha" name="senha" autocomplete="current-password" required>
+          </div>
+          <div class="form-field form-field--full">
+            <button class="btn btn--primary btn--block" type="submit">Acessar</button>
+            <p class="form-note" data-form-status role="status" style="margin-top:.8rem;">
+              Problemas para acessar? <a href="/fale-conosco#contato">Fale com o atendimento</a>.
+            </p>
+          </div>
+        </form>
+
+        <p class="form-note" style="margin-top:1.4rem; border-top:1px solid var(--line); padding-top:1.2rem;">
+          A Copetro nunca solicita sua senha por telefone, e-mail ou mensagem.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA final -->
+<section class="section section--tight cta-band">
+  <div class="container cta-band__inner" data-reveal>
+    <div>
+      <h2>Ainda não é associado?</h2>
+      <p>Entenda como fazer parte da Copetro e acessar todos os serviços.</p>
+    </div>
+    <div class="btn-row">
+      <a class="btn btn--primary" href="/fale-conosco#associar">Quero ser associado</a>
+    </div>
+  </div>
+</section>
+
+{% endblock %}

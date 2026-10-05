@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 520" fill="none" aria-hidden="true">
+  <defs>
+    <linearGradient id="hcard" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#ffffff" stop-opacity=".16"/>
+      <stop offset="1" stop-color="#ffffff" stop-opacity=".04"/>
+    </linearGradient>
+  </defs>
+
+  <!-- aneis concentricos: movimento permanente -->
+  <g stroke="#a8e063" stroke-opacity=".3" stroke-width="2">
+    <circle cx="260" cy="260" r="248"/>
+    <circle cx="260" cy="260" r="196"/>
+  </g>
+
+  <!-- forma organica, linguagem das pecas -->
+  <path d="M403 120c44 47 58 118 36 180-22 63-80 116-146 128-66 12-140-17-172-71-32-55-22-135 22-190 44-56 122-87 279-47z"
+        fill="#009a44" fill-opacity=".38"/>
+
+  <!-- circulo da marca -->
+  <circle cx="260" cy="228" r="86" fill="#f5e400"/>
+  <g fill="#0a3a1b">
+    <path d="M236 172l25 68h-50z"/><rect x="255" y="234" width="12" height="30" rx="4"/>
+    <path d="M281 190l21 58h-42z"/><rect x="229" y="234" width="12" height="30" rx="4"/>
+  </g>
+
+  <!-- cartao de vidro: parcela -->
+  <g>
+    <rect x="96" y="352" width="328" height="104" rx="22" fill="url(#hcard)" stroke="#ffffff" stroke-opacity=".28"/>
+    <rect x="122" y="380" width="128" height="11" rx="5.5" fill="#ffffff" fill-opacity=".45"/>
+    <rect x="122" y="406" width="196" height="20" rx="10" fill="#a8e063" fill-opacity=".9"/>
+    <circle cx="372" cy="404" r="26" fill="#f5e400" fill-opacity=".9"/>
+  </g>
+
+  <!-- acentos -->
+  <circle cx="452" cy="196" r="14" fill="#8cd94c"/>
+  <circle cx="72" cy="268" r="9" fill="#f5e400"/>
+</svg>
